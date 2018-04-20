@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
         }else {
             console.log("No config detected, attempting to use environment variables...");
         }
-        if (process.env.MUSIC_BOT_TOKEN && process.env.YOUTUBE_API_KEY) {
+        if (process.env.TOKEN && process.env.YTAPI) {
             var config = require('../../config.json')
         } else {
             console.log("No token passed! Exiting...")
