@@ -14,5 +14,5 @@
  	"configRev": "0.1.5",
  	"language" : "fr",
   	"language_comments" : "en",
-  	"client_id": "Bprocess.env.BOTID"
+  	"client_id": "process.env.BOTID"
 }
