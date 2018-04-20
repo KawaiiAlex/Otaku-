@@ -11,6 +11,7 @@ exports.run = (client, message, args) => {
     
     if(message.content === "heho") {
         message.reply("prout")
+    }
 }
 
 exports.conf = {
