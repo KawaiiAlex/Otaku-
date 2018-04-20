@@ -7,7 +7,7 @@ const queues = {}
 const opts = {
     part: 'snippet',
     maxResults: 10,
-    key: config.youtube_api_key
+    key: process.env.YTAPI
 }
 
 exports.run = (client, message, args) => {
