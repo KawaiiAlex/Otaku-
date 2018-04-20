@@ -1,5 +1,6 @@
 {
-	"ownerid": "OWNERID",
+	"ownerid": "281125214098685954",
+	"owner_id": "281125214098685954",
 	"modrolename": "Admin",
 	"adminrolename": "Modo",
 	"prefix": "//",
@@ -14,5 +15,5 @@
  	"configRev": "0.1.5",
  	"language" : "fr",
   	"language_comments" : "en",
-  	"client_id": "BOTID"
+  	"client_id": "410357219545317376"
 }
