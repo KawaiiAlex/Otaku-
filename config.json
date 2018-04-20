@@ -1,20 +1,19 @@
 {
-	"ownerid": "281125214098685954",
+	"ownerid": "OWNER_ID",
 	"modrolename": "Admin",
 	"adminrolename": "Modo",
 	"prefix": "//",
 	"rvotes": "99",
-	"token": "NDEwMzU3MjE5NTQ1MzE3Mzc2.DbfM2w.EPuB3IuKcSnOk4Y15S_mUyJ6zx4",
+	"token": "TOKEN",
 	"red": "#b70000",
 	"orange": "#ff6a00",
 	"green": "#00ff26",
 	"purple": "#d604cf",
-	"owner_id": "281125214098685954",
   	"status": "ONLINE",
-  	"youtube_api_key": "AIzaSyAMUb97f6NGghZNyEAzPKVPBJkmIXWSLgU",
-  	"admins": "277549799002341386",
+  	"youtube_api_key": "YOUTUBE_API_KEY",
+  	"admins": "ADMIN_ID",
  	"configRev": "0.1.5",
  	"language" : "fr",
   	"language_comments" : "en",
-  	"client_id": "410357219545317376"
+  	"client_id": "BOT_ID"
 }
