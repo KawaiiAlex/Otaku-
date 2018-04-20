@@ -48,7 +48,7 @@ exports.run = (client, message, args) => {
 
     let queue = getQueue(message.guild.id);
     if(language =='fr'){
-    if (queue.length == 0) return message.channel.send(msg, "Pas de musique dans la queue");
+    if (queue.length == 0) return message.channel.send(message, "Pas de musique dans la queue");
     message.channel.send({
         embed: {
             author: {
