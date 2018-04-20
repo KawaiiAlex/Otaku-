@@ -21,19 +21,6 @@ var intent;
     
     var paused = {}
     
-    //Fix dis shit
-    function getRandomMusic(queue, msg) {
-        fs.readFile('./data/autoplaylist.txt', 'utf8', function(err, data) {
-            if (err) throw err;
-            console.log('OK: autoplaylist.txt');
-            var random = data.split('\n');
-            var num = getRandomInt(random.length);
-            console.log(random[num])
-            var url = random[num];
-            msg.author.username = "AUTOPLAYLIST";
-            play(msg, queue, url)
-        });
-    }
 
     function play(message, queue, song) {
         try {
@@ -133,11 +120,13 @@ var intent;
                 }
             } else {
                 if(language == "fr"){
-                    message.channel.send('Plus de musique dans la file d\'attente! Démarrage de la liste de lecture automatique').then(response => { response.delete(5000) });
-                getRandomMusic(queue, message);
+                    message.channel.send('Il n\'y a plus de musique dans la playlist.').then(response => { response.delete(5000) });
+                    if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+  
                 }else{
                     message.channel.send('No more music in queue! Starting autoplaylist').then(response => { response.delete(5000) });
-                getRandomMusic(queue, message);    
+                    if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+                  
                 }
             }
         } catch (err) {
