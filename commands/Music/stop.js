@@ -8,10 +8,6 @@ exports.run = (client, message, args) => {
     var server = servers[message.guild.id];
 
     if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-    
-    if(message.content === "heho") {
-        message.reply("prout")
-    }
 }
 
 exports.conf = {
