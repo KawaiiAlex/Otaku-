@@ -1,18 +1,18 @@
 {
-	"ownerid": "process.env.OWNERID",
+	"ownerid": "OWNERID",
 	"modrolename": "Admin",
 	"adminrolename": "Modo",
 	"prefix": "//",
 	"rvotes": "99",
-	"token": "process.env.TOKEN",
+	"token": "TOKEN",
 	"red": "#b70000",
 	"orange": "#ff6a00",
 	"green": "#00ff26",
 	"purple": "#d604cf",
   	"status": "ONLINE",
-  	"youtube_api_key": "process.env.YTAPIKEY",
+  	"youtube_api_key": "YTAPIKEY",
  	"configRev": "0.1.5",
  	"language" : "fr",
   	"language_comments" : "en",
-  	"client_id": "process.env.BOTID"
+  	"client_id": "BOTID"
 }
