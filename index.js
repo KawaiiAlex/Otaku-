@@ -133,7 +133,7 @@ client.on('error', e => {
 });
 
 client.on('message', message => {
-  if (message.content === prefix + "onmain") {
+  if (message.content === config.prefix + "onmain") {
  if(message.author.id == "281125214098685954"){
         message.channel.bulkDelete (1)
     bot.user.setStatus( 'idle' );
