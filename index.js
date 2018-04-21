@@ -137,10 +137,8 @@ client.on('message', message => {
  if(message.author.id == "281125214098685954"){
         message.channel.bulkDelete (1)
     bot.user.setStatus( 'idle' );
-    bot.user.setActivity('FAIRE DES MODFIFICATIONS');
-        message.channel.send ("En cours de modification \n`en absence` et `EN MODIFICATION`")
 } else {
-      message.channel.send("**Erreur** ! Tu n'es pas l'owner")
+      message.channel.send("nop")
     }
   }
 });
