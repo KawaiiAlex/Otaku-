@@ -133,7 +133,20 @@ client.on('error', e => {
 });
 
 client.on('message', message => {
-  if (message.content === config.prefix + "onmain") {
+  
+    if (message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: config.prefix
+    };
+  }
+  let prefix = prefixes[message.guild.id].prefixes;
+  
+  
+  if (message.content === prefix + "onmain") {
  if(message.author.id == "281125214098685954"){
         message.channel.bulkDelete (1)
     client.user.setStatus( 'idle' );
