@@ -1,5 +1,6 @@
 const ms = require('ms');
 exports.run = (client, message, args) => {
+  /*
   if (!client.lockit) client.lockit = [];
   const time = args.join(' ');
   const validUnlocks = ['release', 'unlock'];
@@ -31,6 +32,8 @@ exports.run = (client, message, args) => {
       });
     });
   }
+  */
+  message.channel.send("Commande en réparation. Désolé.")
 };
 exports.conf = {
   enabled: true,
