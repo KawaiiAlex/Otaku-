@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
   if (message.mentions.users.size < 1) return message.reply('Vous devez mentionner quelqu\'un pour le mute ou unmute.').then(msg => {msg.delete(5000)});;
 
   if(!message.channel.permissionsFor(message.author).has("MANAGE_ROLES")) return message.channel.send("Tu n'as pas les droits").then(msg => {msg.delete(5000)});
-  if (!message.cahnnel.permissionsFor(client.user).has('MANAGE_ROLES')) return message.reply('Je n\'ai pas les permissions correctes.').then(msg => {msg.delete(5000)});
+  if (!message.channel.permissionsFor(client.user).has('MANAGE_ROLES')) return message.reply('Je n\'ai pas les permissions correctes.').then(msg => {msg.delete(5000)});
 
 
   if (message.guild.member(user).roles.has(muteRole.id)) {
