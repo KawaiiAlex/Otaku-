@@ -7,7 +7,7 @@ const m = await message.channel.send("Ping?");
 
         var PingEmbed = new Discord.RichEmbed()
 .setColor("#689AFB")
-.addField('Pong !', '***' + `${message.createdTimestamp - Date.now()}` + ' ms***')
+.addField('Pong !', '***' + `${new Date().getTime() - message.createdTimestamp}` + ' ms***')
 .setFooter(`Ping`).setTimestamp();
 
 m.edit(PingEmbed);
