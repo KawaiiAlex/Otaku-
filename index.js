@@ -137,7 +137,7 @@ client.on('message', message => {
     if (message.author.bot) return;
   if(message.channel.type === "dm") return;
 
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
   if(!prefixes[message.guild.id]){
     prefixes[message.guild.id] = {
       prefixes: config.prefix
