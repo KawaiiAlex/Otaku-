@@ -1,6 +1,17 @@
 const Discord = require('discord.js');
 const {RichEmbed} = require('discord.js');
+const config = require('../../config.json');
 exports.run = (client, message, args) => {  
+    if (message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: config.prefix
+    };
+  }
+let prefix = prefixes[message.guild.id].prefixes;
   
   if(message.channel.type === "dm") return;
 
