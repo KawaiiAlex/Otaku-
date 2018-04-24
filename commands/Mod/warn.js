@@ -23,13 +23,13 @@ exports.run = (client, message, args) => {
   });
 
   let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warnings")
-  .setAuthor(message.author.username)
+  .setDescription("Warnings", false)
+  .setAuthor(message.author.username, false)
   .setColor("#fc6400")
-  .addField("Utilisateur warn", `<@${wUser.id}>`)
-  .addField("Warn dans", message.channel)
-  .addField("Nombre de warn", warns[wUser.id].warns)
-  .addField("Raison", reason);
+  .addField("Utilisateur warn", `<@${wUser.id}>`, false)
+  .addField("Warn dans", message.channel, false)
+  .addField("Nombre de warn", warns[wUser.id].warns, false)
+  .addField("Raison", reason, false);
 
   let warnchannel = message.guild.channels.find(`name`, "otaku-logs");
   if(!warnchannel) return message.reply("Couldn't find channel");
@@ -37,10 +37,10 @@ exports.run = (client, message, args) => {
   message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
   
   let embed = new Discord.RichEmbed()
-  .setDescription("Warning")
-  .addField("Warn par", message.member)
-  .addField("Nombre de warn", warns[wUser.id].warns)
-  .addField("Raison", reason);
+  .setDescription("Warning", false)
+  .addField("Warn par", message.member, false)
+  .addField("Nombre de warn", warns[wUser.id].warns, false)
+  .addField("Raison", reason, false);
   wUser.send(embed);
 
   if(warns[wUser.id].warns == 5){
