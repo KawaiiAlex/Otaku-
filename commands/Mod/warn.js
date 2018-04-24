@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
   .addField("Raison", reason, false);
 
   let warnchannel = message.guild.channels.find(`name`, "otaku-logs");
-  if(!warnchannel) return message.reply("Couldn't find channel");
+  if(!warnchannel) return message.reply("Je ne trouve pas le channel `otaku-logs`.");
   warnchannel.send(warnEmbed);
   message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
   
