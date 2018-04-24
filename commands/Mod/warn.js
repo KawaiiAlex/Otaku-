@@ -3,6 +3,16 @@ const {caseNumber} = require('../../util/caseNumber.js');
 const {parseUser} = require('../../util/parseUser.js');
 const settings = require('../../config.json');
 exports.run = async (client, message, args) => {
+    if (message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  if(!prefixes[message.guild.id]){
+    prefixes[message.guild.id] = {
+      prefixes: config.prefix
+    };
+  }
+let prefix = prefixes[message.guild.id].prefixes;
   const user = message.mentions.users.first();
   parseUser(message, user);
   const modlog = client.channels.find('name', 'otaku-logs');
