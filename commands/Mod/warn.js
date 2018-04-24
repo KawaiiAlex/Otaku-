@@ -5,7 +5,6 @@ let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 exports.run = (client, message, args) => {
 
-  /*
   //!warn @daeshan <reason>
   if(!message.channel.permissionsFor(message.author).has("KICK_MEMBERS")) return message.reply("Tu n'as pas la permission pour faire ça.");
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
@@ -61,8 +60,7 @@ exports.run = (client, message, args) => {
     message.reply(`<@${wUser.id}> est ban.`)
   }
 
-*/
-  message.channel.send("Commande en réparation. Désolé.")
+  //message.channel.send("Commande en réparation. Désolé.")
 
 }
 
