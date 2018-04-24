@@ -16,7 +16,6 @@ let prefix = prefixes[message.guild.id].prefixes;
   const user = message.mentions.users.first();
   parseUser(message, user);
   const modlog = client.channels.find('name', 'otaku-logs');
-  const caseNum = await caseNumber(client, modlog);
   if (!modlog) return message.reply('Je ne trouve pas le channel otaku-logs.');
   if (message.mentions.users.size < 1) return message.reply('Vous devez mentionner un utilisateur pour ').catch(console.error);
 
@@ -25,7 +24,6 @@ let prefix = prefixes[message.guild.id].prefixes;
   .setColor(0x00AE86)
   .setTimestamp()
   .setDescription(`**Action:** Warning\n**Utilisateur Warn:** ${user.tag}\n**Modérateur:** ${message.author.tag}\n**Raison:** ${reason}`)
-  .setFooter(`Case ${caseNum}`);
   return client.channels.get(modlog.id).send({embed});
   return message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
 };
