@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
   message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
   
   let embed = new Discord.RichEmbed()
-  .setTitle("Warning")
+  .setDescription("Warning")
   .addField("Warn par", message.member)
   .addField("Nombre de warn", warns[wUser.id].warns)
   .addField("Raison", reason);
