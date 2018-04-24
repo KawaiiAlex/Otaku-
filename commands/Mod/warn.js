@@ -4,6 +4,7 @@ const {parseUser} = require('../../util/parseUser.js');
 const settings = require('../../config.json');
 const fs = require("fs");
 exports.run = async (client, message, args) => {
+    /*
     if (message.author.bot) return;
   if(message.channel.type === "dm") return;
 
@@ -27,6 +28,8 @@ let prefix = prefixes[message.guild.id].prefixes;
   .setDescription(`**Action:** Warning\n**Utilisateur Warn:** ${user.tag}\n**Modérateur:** ${message.author.tag}\n**Raison:** ${reason}`)
   return client.channels.get(modlog.id).send({embed});
   return message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
+    */
+    message.channel.send("Commande inutilisable pour le moment");
 };
 
 
