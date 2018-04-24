@@ -2,6 +2,7 @@ const {RichEmbed} = require('discord.js');
 const {caseNumber} = require('../../util/caseNumber.js');
 const {parseUser} = require('../../util/parseUser.js');
 const settings = require('../../config.json');
+const fs = require("fs");
 exports.run = async (client, message, args) => {
     if (message.author.bot) return;
   if(message.channel.type === "dm") return;
