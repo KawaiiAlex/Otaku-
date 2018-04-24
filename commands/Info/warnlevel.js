@@ -4,14 +4,14 @@ const ms = require("ms");
 let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
 exports.run = (client, message, args) => {
-/*
+
     let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
     if(!wUser) return message.reply("Je ne trouve pas cette utilisateur");
     let warnlevel = warns[wUser.id].warns;
   
     message.reply(`<@${wUser.id}> a ${warnlevel} warns.`);
-  */
-    message.channel.send("Commande en réparation. Désolé.")
+  
+    //message.channel.send("Commande en réparation. Désolé.")
   };
 
 exports.conf = {
