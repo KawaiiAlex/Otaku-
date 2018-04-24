@@ -1,68 +1,25 @@
-const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
-let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+const {RichEmbed} = require('discord.js');
+const {caseNumber} = require('../util/caseNumber.js');
+const {parseUser} = require('../util/parseUser.js');
+const settings = require('../settings.json');
+exports.run = async (client, message, args) => {
+  const user = message.mentions.users.first();
+  parseUser(message, user);
+  const modlog = client.channels.find('name', 'otaku-logs');
+  const caseNum = await caseNumber(client, modlog);
+  if (!modlog) return message.reply('Je ne trouve pas le channel otaku-logs.');
+  if (message.mentions.users.size < 1) return message.reply('Vous devez mentionner un utilisateur pour ').catch(console.error);
 
-exports.run = (client, message, args) => {
+  const reason = args.splice(1, args.length).join(' ') || `Tu dois dire une raison pour warn.`;
+  const embed = new RichEmbed()
+  .setColor(0x00AE86)
+  .setTimestamp()
+  .setDescription(`**Action:** Warning\n**Utilisateur Warn:** ${user.tag}\n**Modérateur:** ${message.author.tag}\n**Raison:** ${reason}`)
+  .setFooter(`Case ${caseNum}`);
+  return client.channels.get(modlog.id).send({embed});
+  return message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
+};
 
-  //!warn @daeshan <reason>
-  if(!message.channel.permissionsFor(message.author).has("KICK_MEMBERS")) return message.reply("Tu n'as pas la permission pour faire ça.");
-  let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Je ne trouve pas cette utilisateur");
-  if(message.channel.permissionsFor(wUser).has("KICK_MEMBERS")) return message.reply("Tu ne peux pas le warn!");
-  let reason = args.join(" ").slice(22);
-
-  if(!warns[wUser.id]) warns[wUser.id] = {
-    warns: 0
-  };
-
-  warns[wUser.id].warns++;
-
-  fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-    if (err) console.log(err)
-  });
-
-  let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warnings", false)
-  .setAuthor(message.author.username, false)
-  .setColor("#fc6400")
-  .addField("Utilisateur warn", `<@${wUser.id}>`, false)
-  .addField("Warn dans", message.channel, false)
-  .addField("Nombre de warn", warns[wUser.id].warns, false)
-  .addField("Raison", reason, false);
-
-  let warnchannel = message.guild.channels.find(`name`, "otaku-logs");
-  if(!warnchannel) return message.reply("Je ne trouve pas le channel `otaku-logs`.");
-  warnchannel.send(warnEmbed);
-  message.channel.send(":white_check_mark: **| Cette utilisateur c'est fait warn.**");
-  
-  let embed = new Discord.RichEmbed()
-  .setDescription("Warning", false)
-  .addField("Warn par", message.member, false)
-  .addField("Nombre de warn", warns[wUser.id].warns, false)
-  .addField("Raison", reason, false);
-  wUser.send(embed);
-
-  if(warns[wUser.id].warns == 5){
-    let muterole = message.guild.roles.find(`name`, "Prison");
-    if(!muterole) return message.reply("Le rôle ``prison`` n'existe pas. Je ne peux pas le mute.");
-    message.guild.member(wUser).addRole(muterole)
-    message.reply(`<@${wUser.id} est mute.`)
-  }
-   
-  if(warns[wUser.id].warns == 10){
-    message.guild.member(wUser).kick(reason);
-    message.reply(`<@${wUser.id}> est kick.`)
-  }
-
-  if(warns[wUser.id].warns == 15){
-    message.guild.member(wUser).ban(reason);
-    message.reply(`<@${wUser.id}> est ban.`)
-  }
-
-  //message.channel.send("Commande en réparation. Désolé.")
-
-}
 
 exports.conf = {
   enabled: true,
