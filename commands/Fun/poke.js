@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
 
     let defineduser = message.mentions.users.first();
-    let user = message.author
+    let user = message.author.username
     message.delete();
     if (!args[0]) {return message.reply(`**Veuillez spécifiez un utilisateur que vous voulez toucher.**`)    
                   }else{
