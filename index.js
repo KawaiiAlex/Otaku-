@@ -163,10 +163,10 @@ client.on('message', message => {
   if (message.content === '//check') {
     switch (active) {
       case true:
-        message.channel.send('Addon currently ACTIVE');
+        message.channel.send('Autorole Actif');
         break;
       case false:
-        message.channel.send('addon currently DEACTIVE');
+        message.channel.send('Autorole Non Actif');
         break;
                   }
 }});
@@ -179,10 +179,41 @@ client.on('guildMemberAdd', member => {
   }
 })
 
-client.on('quildMemberAdf', member => {
-  member.send("Bienvenue sur le serveur. Amuse toi bien en notre compagnie :wink:")
-  
-  
-          })
+var activeH = false
+ 
+
+
+/* client.on('message', message => {
+  if (message.content === '!Initialize') {
+    client.createRole('PUGS');
+    message.channel.send('bot initialized!')
+  }
+ });
+*/
+client.on('message', message => {
+  if (message.content === '//enableH') {
+
+    activeH = true
+    
+  }
+});
+ 
+client.on('message', message => {
+  if (message.content === '//disableH') {
+    
+    activeH = false
+    
+  }
+});
+
+client.on('guildMemberAdd', member => {
+  if(activeH === true) {
+    var role = member.guild.roles.find("name", "Créateur");
+    member.addRole(role).catch(console.error);
+    
+  }
+})
+
+
 
 client.login(process.env.TOKEN)
