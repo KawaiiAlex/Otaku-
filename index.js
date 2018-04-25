@@ -182,7 +182,7 @@ client.on('guildMemberAdd', member => {
 client.on('quildMemberAdf', member => {
   member.send("Bienvenue sur le serveur. Amuse toi bien en notre compagnie :wink:")
   
-  }
+  
           })
 
 client.login(process.env.TOKEN)
