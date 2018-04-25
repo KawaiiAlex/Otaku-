@@ -175,7 +175,14 @@ client.on('guildMemberAdd', member => {
   if(active === true) {
     var role = member.guild.roles.find("name", "Atarashii'Otaku");
     member.addRole(role).catch(console.error);
+    
   }
 })
+
+client.on('quildMemberAdf', member => {
+  member.send("Bienvenue sur le serveur. Amuse toi bien en notre compagnie :wink:")
+  
+  }
+          })
 
 client.login(process.env.TOKEN)
