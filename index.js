@@ -192,7 +192,7 @@ var activeH = false
 */
 client.on('message', message => {
   if (message.content === '//enableH') {
-
+message.react("🆗")
     activeH = true
     
   }
@@ -200,7 +200,7 @@ client.on('message', message => {
  
 client.on('message', message => {
   if (message.content === '//disableH') {
-    
+    message.react("🆗")
     activeH = false
     
   }
