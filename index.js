@@ -134,10 +134,8 @@ client.on('error', e => {
 
 var active = false
  
-client.on('ready', () => {
-  console.log('I am ready!');
-});
- 
+
+
 /* client.on('message', message => {
   if (message.content === '!Initialize') {
     client.createRole('PUGS');
