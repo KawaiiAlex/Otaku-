@@ -85,7 +85,7 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
       client.aliases.set(alias, props.help.name);
     });
   });
-  fs.readdir('./commands/Music/', (err, filesmusic) => {
+    fs.readdir('./commands/Music/', (err, filesmusic) => {
     if (err) console.error(err);
     console.log(cyancolor(`${filesmusic.length} commandes music,`));
     filesmusic.forEach(f => {
@@ -95,8 +95,19 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
-  var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
+    fs.readdir('./commands/raid/', (err, filesraid) => {
+      if (err) console.error(err);
+      filesraid.forEach(f => {
+        const props = require(`./commands/raid/${f}`);
+        client.commands.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+          client.aliases.set(alias, props.help.name);
+        });
+      });
+      
+  var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length + filesraid.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
+});
 });
 });
 });
