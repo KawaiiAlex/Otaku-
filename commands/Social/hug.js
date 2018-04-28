@@ -1,29 +1,27 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
+const Discord = require('discord.js');
+const fs = require("fs");
+exports.run = (client, message, args) => {
 
-const NUM_HUG = 7;
-// Hug Gifs
-var hug = [
-  {link:'https://cdn.weeb.sh/images/BJF5_uXvZ.gif'},
-  {link:'https://cdn.weeb.sh/images/rJ_slRYFZ.gif'},
-  {link:'https://cdn.weeb.sh/images/r1bAksn0W.gif'},
-  {link:'https://cdn.weeb.sh/images/r1G3xCFYZ.gif'},
-  {link:'https://cdn.weeb.sh/images/Hy4hxRKtW.gif'},
-  {link:'https://cdn.weeb.sh/images/ryPix0Ft-.gif'},
-  {link:'https://cdn.weeb.sh/images/SJByY_QwW.gif'}
-];
+  let defineduser = message.mentions.users.first();
 
-    var rand =  Math.floor(Math.random() * NUM_HUG)
-    let defineduser = message.mentions.users.first();
+  fs.readFile('./commands/Social/Link/hug.txt', 'utf8', function(err, data) {
+      if (err) throw err;
+      var random = data.split('\n');
+      var num = getRandomInt(random.length);
+      var url = random[num];
 
-    var HugEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
-    .setTitle(`${message.author.username} fait un hug à ${defineduser.username}`)
-    .setImage(hug[rand].link)
-    .setFooter("hug");
+  
 
-    message.channel.send(HugEmbed)
-        
+      var HugEmbed = new Discord.RichEmbed()
+  .setColor("#689AFB")
+  .setTitle(`${message.author.username} fait un hug à ${defineduser.username}`)
+  .setImage(url)
+  .setFooter("hug");
+
+  message.channel.send(HugEmbed)
+});
 }
 
   
