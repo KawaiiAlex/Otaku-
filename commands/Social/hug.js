@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
 
   let defineduser = message.mentions.users.first();
 
-  fs.readFile('./commands/Social/Link/hug.txt', 'utf8', function(err, data) {
+  fs.readFile('./Link/hug.txt', 'utf8', function(err, data) {
       if (err) throw err;
       var random = data.split('\n');
       var num = getRandomInt(random.length);
