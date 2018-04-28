@@ -144,44 +144,5 @@ client.on('error', e => {
 });
 
 
-'use strict';
 
-require('dotenv').configs()
-
-
-const configs = {
-	token: process.env.TOKEN,
-	guildId: process.env.GUILD_ID,
-	role: process.env.ROLE_ID,
-	ids: process.env.DISCORD_IDS.split(','),
-};
-
-let guild;
-
-async function checkForAutoMember(userId, member) {
-	const guildMember = member || guild.members.get(userId);
-	if (guildMember && !guildMember.roles.get(configs.role)) {
-		await guildMember.addRole(configs.role);
-		console.log(`Added ${guild.roles.get(configs.role)} to ${guildMember}`);
-	}
-}
-
-client.on('ready', () => {
-  client.user.setPresence({
-    status: 'online',
-    game: {
-      name: `${client.users.size} utilisateurs et ${client.guilds.size} serveurs || //help`,
-      url: 'http://otakubotdiscord.onlc.fr/',
-    },
-  });
-
-  guild = client.guilds.get(configs.guildId);
-
-  Promise.all(configs.ids.map((id) => {
-	   return checkForAutoMember(id);
-  }));
-});
-
-client.on('guildMemberAdd', member => checkForAutoMember(undefined, member));
-
-client.login(configs.token);
+client.login(process.env.TOKEN);
