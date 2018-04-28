@@ -146,7 +146,7 @@ client.on('error', e => {
 
 'use strict';
 
-require('dotenv').config()
+require('dotenv').configs()
 
 
 const configs = {
