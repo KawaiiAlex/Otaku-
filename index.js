@@ -95,6 +95,16 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
+ /*   fs.readdir('./commands/raid/', (err, filesraid) => {
+      if (err) console.error(err);
+      filesraid.forEach(f => {
+        const props = require(`./commands/raid/${f}`);
+        client.commands.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+          client.aliases.set(alias, props.help.name);
+        });
+      });
+      });*/
   var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 
@@ -134,7 +144,38 @@ client.on('error', e => {
 });
 
 
+'use strict';
+
+require('dotenv').config()
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+const configs = {
+	token: process.env.TOKEN,
+	guildId: process.env.GUILD_ID,
+	role: process.env.ROLE_ID,
+	ids: process.env.DISCORD_IDS.split(','),
+};
+
+let guild;
+
+async function checkForAutoMember(userId, member) {
+	const guildMember = member || guild.members.get(userId);
+	if (guildMember && !guildMember.roles.get(configs.role)) {
+		await guildMember.addRole(configs.role);
+		console.log(`Added ${guild.roles.get(configs.role)} to ${guildMember}`);
+	}
+}
+
+  guild = client.guilds.get(configs.guildId);
+
+  Promise.all(configs.ids.map((id) => {
+	   return checkForAutoMember(id);
+  }));
+
+
+client.on('guildMemberAdd', member => checkForAutoMember(undefined, member));
 
 
 
-client.login(process.env.TOKEN)
+client.login(configs.token)
