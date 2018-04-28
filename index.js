@@ -147,8 +147,7 @@ client.on('error', e => {
 'use strict';
 
 require('dotenv').config()
-const Discord = require('discord.js');
-const client = new Discord.Client();
+
 
 const configs = {
 	token: process.env.TOKEN,
@@ -167,15 +166,22 @@ async function checkForAutoMember(userId, member) {
 	}
 }
 
+client.on('ready', () => {
+  client.user.setPresence({
+    status: 'online',
+    game: {
+      name: `${client.users.size} utilisateurs et ${client.guilds.size} serveurs || //help`,
+      url: 'http://otakubotdiscord.onlc.fr/',
+    },
+  });
+
   guild = client.guilds.get(configs.guildId);
 
   Promise.all(configs.ids.map((id) => {
 	   return checkForAutoMember(id);
   }));
-
+});
 
 client.on('guildMemberAdd', member => checkForAutoMember(undefined, member));
 
-
-
-client.login(configs.token)
+client.login(configs.token);
