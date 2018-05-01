@@ -56,13 +56,13 @@ exports.run = async (bot, message, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['quizg', 'quiz G'],
+    aliases: ['quizG'],
     permLevel: 0
   };
 
   exports.help = {
-    name: 'quiz g',
+    name: 'quizg',
     description: 'Pose des questions. Vous avez 30 secondes pour répondre.',
-    usage: 'quiz g'
+    usage: 'quizg'
   };
 
