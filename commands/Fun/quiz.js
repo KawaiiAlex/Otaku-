@@ -37,14 +37,13 @@ exports.run = async (bot, message, args) => {
   try {
     const collected = await message.channel.awaitMessages(answer => item.a.includes(answer.content.toLowerCase()), options);
     const winnerMessage = collected.first();
-    if(args[0] !== winnerMessage.content) return message.channel.send("**BONNE REPONSE !**");
-
     const embed = new Discord.RichEmbed()
-                                 .setAuthor(`Gagnant: ${winnerMessage.author.tag}`, winnerMessage.author.displayAvatarURL)
-                                 .setTitle(`Bonne réponse: \`${winnerMessage.content}\``)
-                                 .setFooter(`Question: ${item.q}`)
-                                 .setColor(message.guild.me.displayHexColor)
-   return message.channel.send(embed)
+    .setAuthor(`Gagnant: ${winnerMessage.author.tag}`, winnerMessage.author.displayAvatarURL)
+    .setTitle(`Bonne réponse: \`${winnerMessage.content}\``)
+    .setFooter(`Question: ${item.q}`)
+    .setColor(message.guild.me.displayHexColor)
+    if(args[0] !== winnerMessage.content) return message.channel.send("**BONNE REPONSE !**") + message.channel.send(embed)
+
   } catch (_) {
 
     const embedtime = new Discord.RichEmbed()
@@ -57,12 +56,13 @@ exports.run = async (bot, message, args) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: [],
+    aliases: ['quizg', 'quiz G'],
     permLevel: 0
   };
 
   exports.help = {
-    name: 'quiz',
+    name: 'quiz g',
     description: 'Pose des questions. Vous avez 30 secondes pour répondre.',
-    usage: 'quiz'
+    usage: 'quiz g'
   };
+
