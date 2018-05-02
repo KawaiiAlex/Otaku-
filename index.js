@@ -95,7 +95,7 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
-    fs.readdir('./commands/raid/', (err, filesraid) => {
+  /*  fs.readdir('./commands/raid/', (err, filesraid) => {
       if (err) console.error(err);
       filesraid.forEach(f => {
         const props = require(`./commands/raid/${f}`);
@@ -104,7 +104,7 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
           client.aliases.set(alias, props.help.name);
         });
       });
-      });
+      });*/
   var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 
