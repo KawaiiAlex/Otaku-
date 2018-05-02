@@ -1,6 +1,7 @@
 const {RichEmbed} = require('discord.js');
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const {parseUser} = require('../../util/parseUser.js');
 exports.run = (client, message, args) => {
 
     if(!message.channel.permissionsFor(message.author).has("KICK_MEMBERS")) return message.channel.send("Tu n'as pas les droits").then(msg => {msg.delete(5000)});;
