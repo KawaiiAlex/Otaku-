@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Je ne trouve pas cette utilisateur").then(msg => {msg.delete(5000)});;
     let kReason = args.join(" ").slice(22);
-    if(message.channel.permissionsFor(kUser).has("KICK_MEMBERS")) return message.channel.send("Cette personne ne peut pas être kick").then(msg => {msg.delete(5000)});;
+    parseUser(message, user);
 
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
