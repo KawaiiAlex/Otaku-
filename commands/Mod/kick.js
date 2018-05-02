@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     if(!message.channel.permissionsFor(client.user).has("KICK_MEMBERS")) return message.channel.send("Je n'ai pas les droits").then(msg => {msg.delete(5000)});;
     const user = message.mentions.users.first();
     parseUser(message, user);   
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Je ne trouve pas cette utilisateur").then(msg => {msg.delete(5000)});
     let kReason = args.join(" ").slice(22);
 
