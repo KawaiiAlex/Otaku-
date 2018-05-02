@@ -2,14 +2,13 @@ const {RichEmbed} = require('discord.js');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const {parseUser} = require('../../util/parseUser.js');
-const kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 exports.run = (client, message, args) => {
 
     if(!message.channel.permissionsFor(message.author).has("KICK_MEMBERS")) return message.channel.send("Tu n'as pas les droits").then(msg => {msg.delete(5000)});;
     if(!message.channel.permissionsFor(client.user).has("KICK_MEMBERS")) return message.channel.send("Je n'ai pas les droits").then(msg => {msg.delete(5000)});;
-
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     parseUser(message, kUser);
-    if(!kUser) return message.channel.send("Je ne trouve pas cette utilisateur").then(msg => {msg.delete(5000)});;
+    if(!kUser) return message.channel.send("Je ne trouve pas cette utilisateur").then(msg => {msg.delete(5000)});
     let kReason = args.join(" ").slice(22);
 
     let kickEmbed = new Discord.RichEmbed()
@@ -21,10 +20,10 @@ exports.run = (client, message, args) => {
     .addField("Heure", message.createdAt)
     .addField("Raison", kReason);
 
-    let kickChannel = message.guild.channels.find(`name`, "otaku-logs").then(msg => {msg.delete(5000)});;
-    if(!kickChannel) return message.channel.send("Je ne trouve pas le salon ``otaku-logs``.").then(msg => {msg.delete(5000)});;
+    let kickChannel = message.guild.channels.find(`name`, "otaku-logs").then(msg => {msg.delete(5000)});
+    if(!kickChannel) return message.channel.send("Je ne trouve pas le salon ``otaku-logs``.").then(msg => {msg.delete(5000)});
 
-    message.channel.send(`${kUser} à été kick avec succès 💫`).then(msg => {msg.delete(5000)});;
+    message.channel.send(`${kUser} à été kick avec succès 💫`).then(msg => {msg.delete(5000)});
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
 }
