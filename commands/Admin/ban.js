@@ -8,6 +8,8 @@ exports.run = (client, message, args) => {
   if(!bUser) return message.channel.send("Can't find user!");
   let bReason = args.join(" ").slice(22);
   if(bUser.hasPermission("BAN_MEMBERS")) return message.channel.send("Tu ne peux pas le ban").then(msg => {msg.delete(5000)});
+  const user = message.mentions.users.first();
+  parseUser(message, user);   
 
   let banEmbed = new Discord.RichEmbed()
   .setDescription("~Ban~")
