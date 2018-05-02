@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
     .addField("Heure", message.createdAt)
     .addField("Raison", kReason);
 
-    let kickChannel = message.guild.channels.find(`name`, "otaku-logs").then(msg => {msg.delete(5000)});
+    let kickChannel = message.guild.channels.find(`name`, "otaku-logs");
     if(!kickChannel) return message.channel.send("Je ne trouve pas le salon ``otaku-logs``.").then(msg => {msg.delete(5000)});
 
     message.channel.send(`${kUser} à été kick avec succès 💫`).then(msg => {msg.delete(5000)});
