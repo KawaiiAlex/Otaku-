@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
     .setColor("#689AFB")
-    .addField("Utilisateur kick", `${KUser.tag} ID ${kUser.id}`)
+    .addField("Utilisateur kick", `${kUser.tag} ID ${kUser.tag}`)
     .addField("Kick par", `${message.author.tag} with ID ${message.author.id}`)
     .addField("Kick dans", `<#${message.channel.id}>`)
     .addField("Heure", message.createdAt)
