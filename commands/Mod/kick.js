@@ -13,13 +13,13 @@ exports.run = (client, message, args) => {
     let kReason = args.join(" ").slice(22);
 
     let kickEmbed = new Discord.RichEmbed()
-    .setDescription("~Kick~")
-    .setColor("#689AFB")
-    .addField("Utilisateur kick", `${kUser.tag} ID ${kUser.tag}`)
-    .addField("Kick par", `${message.author.tag} with ID ${message.author.id}`)
-    .addField("Kick dans", `<#${message.channel.id}>`)
-    .addField("Heure", message.createdAt)
-    .addField("Raison", kReason);
+    .setDescription("~Kick~", false)
+    .setColor("#689AFB", false)
+    .addField("Utilisateur kick", `${kUser.tag} ID ${kUser.tag}`, false)
+    .addField("Kick par", `${message.author.tag} with ID ${message.author.id}`, false)
+    .addField("Kick dans", `<#${message.channel.id}>`, false)
+    .addField("Heure", message.createdAt, false)
+    .addField("Raison", kReason, false);
 
     let kickChannel = message.guild.channels.find(`name`, "otaku-logs");
     if(!kickChannel) return message.channel.send("Je ne trouve pas le salon ``otaku-logs``.").then(msg => {msg.delete(5000)});
