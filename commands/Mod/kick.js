@@ -7,14 +7,7 @@ exports.run = (client, message, args) => {
     if(!message.channel.permissionsFor(message.author).has("KICK_MEMBERS")) return message.channel.send("Tu n'as pas les droits").then(msg => {msg.delete(5000)});;
     if(!message.channel.permissionsFor(client.user).has("KICK_MEMBERS")) return message.channel.send("Je n'ai pas les droits").then(msg => {msg.delete(5000)});;
     const user = message.mentions.users.first();
-       const member = message.guild.member(user) || null;
-    if (user.id === message.author.id) {
-      return message.channel.send('Tu ne peux pas te faire ça, pourquoi as-tu essayé?');
-    } else if (member) {
-      if (member.highestRole.position >= message.member.highestRole.position) return message.channel.send('Le membre ciblé a une position plus ou moins égale à celle de vous.')
-    }
-    return user;
-  };
+    parseUser(message, user);
     var kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Je ne trouve pas cette utilisateur").then(msg => {msg.delete(5000)});
     let kReason = args.join(" ").slice(22);
