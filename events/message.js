@@ -29,8 +29,4 @@ module.exports = message => {
     cmd.run(client, message, params, perms);
   }
 
-  setTimeout(() => {
-    cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
-
 };
