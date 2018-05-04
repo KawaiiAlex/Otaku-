@@ -95,7 +95,7 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
-   */fs.readdir('./commands/raid/', (err, filesraid) => {
+   /*fs.readdir('./commands/raid/', (err, filesraid) => {
       if (err) console.error(err);
       filesraid.forEach(f => {
         const props = require(`./commands/raid/${f}`);
