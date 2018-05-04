@@ -1,6 +1,5 @@
 const settings = require('../config.json');
-let cooldown = new Set();
-let cdseconds = 5;
+
 const fs = require("fs");
 module.exports = message => {
   const client = message.client;
@@ -15,13 +14,7 @@ module.exports = message => {
   }
   let prefix = prefixes[message.guild.id].prefixes;
   if(!message.content.startsWith(prefix)) return;
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("Tu dois attendre 5s entre chaque commande.")
-  }
-  if(!message.member.hasPermission("ADMINISTRATOR")){
-    cooldown.add(message.author.id);
-  }
+
   const command = message.content.split(' ')[0].slice(prefix.length);
   const params = message.content.split(' ').slice(1);
   const perms = client.elevation(message);
