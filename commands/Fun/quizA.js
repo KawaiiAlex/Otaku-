@@ -27,7 +27,7 @@ const options = {
 
 exports.run = async (bot, message, args) => {
 
-  const item = Math.floor(Math.random() * quiz);
+  const item = quiz[Math.floor(Math.random() * quiz.length)];
   await message.channel.send(item.q);
   try {
     const collected = await message.channel.awaitMessages(answer => item.a.includes(answer.content.toLowerCase()), options);
