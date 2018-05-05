@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
+  
+  let definedNumber = message.content.substring(6)
 
-  let result = Math.floor((Math.random() * 100) + 1);
+  let result = Math.floor((Math.random() * definedNumber) + 1);
   message.channel.send(":white_check_mark: | **Tu as obtenu le nombre** " + result);
 }
 
@@ -15,6 +17,6 @@ exports.run = (client, message, args) => {
   
   exports.help = {
     name: 'roll',
-    description: 'Donne un nombre aléatoire entre 1 et 100',
+    description: 'Donne un nombre aléatoire',
     usage: 'roll'
   };
