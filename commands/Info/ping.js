@@ -3,7 +3,7 @@
 exports.run = async (client, message) => {
 
 
-const m = await message.channel.send("Ping?");
+/*const m = await message.channel.send("Ping?");
 
         var PingEmbed = new Discord.RichEmbed()
 .setColor("#689AFB")
@@ -11,7 +11,7 @@ const m = await message.channel.send("Ping?");
 .setFooter(`Ping`).setTimestamp();
 
 m.edit(PingEmbed);
-}
+}*/
 message.channel.send(`\`\`\`\n= Pong =\n${new Date().getTime() - message.createdTimestamp} ms\n\`\`\``
   
   
