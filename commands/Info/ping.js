@@ -12,6 +12,7 @@ const m = await message.channel.send("Ping?");
 
 m.edit(PingEmbed);
 }
+message.channel.send(`\`\`\`\n= Pong =\n${new Date().getTime() - message.createdTimestamp} ms\n\`\`\``
   
   
   exports.conf = {
