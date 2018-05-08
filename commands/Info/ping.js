@@ -12,7 +12,7 @@ exports.run = async (client, message) => {
 
 m.edit(PingEmbed);
 }*/
-message.channel.send(`\`\`\`\n= Pong =\n${new Date().getTime() - message.createdTimestamp} ms\n\`\`\``, {code:'asciidoc'});
+message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
                      };
   
   
