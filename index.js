@@ -137,6 +137,12 @@ client.on('error', e => {
     pre = "^°^";
     banMessage = "CYAK BLYAT ! RUSSIA <33333 YOU HAVE BEEN BANNED HAHAHAHAHAH";
 
+/*Message Checker --
+ defines if a code is a valid command*/
+function cmd(str, msg) {
+ return msg.content.toLowerCase().startsWith(pre + str);
+} 
+
 
 bot.on("message", msg => {
     //ban command
