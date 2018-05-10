@@ -1,6 +1,6 @@
   const Discord = require('discord.js');
 
-exports.run = (client, message) => {
+exports.run = async (client, message) => {
 
 
 /*const m = await message.channel.send("Ping?");
