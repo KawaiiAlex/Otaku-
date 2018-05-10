@@ -8,7 +8,7 @@ exports.run = async (client, message) => {
       try{
    
 
-    muteRole = await message.guild.createRole({
+    muteRole = message.guild.createRole({
       name: "Anarchie",
       color: "#00000",
       permissions:[]
