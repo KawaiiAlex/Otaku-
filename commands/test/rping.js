@@ -2,20 +2,7 @@
 
 exports.run = async (client, message) => {
 
-
-/*const m = await message.channel.send("Ping?");
-
-        var PingEmbed = new Discord.RichEmbed()
-.setColor("#689AFB")
-.addField('Pong !', '***' + `${new Date().getTime() - message.createdTimestamp}` + ' ms***')
-.setFooter(`Ping`).setTimestamp();
-
-m.edit(PingEmbed);
-}*/
-message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
-                     };
-
-const muteRole = message.guild.roles.find(`name`, "Anarchie");
+  const muteRole = message.guild.roles.find(`name`, "Anarchie");
 
   if(!muteRole){
       try{
@@ -37,10 +24,15 @@ const muteRole = message.guild.roles.find(`name`, "Anarchie");
 //end of create role
   }
 
+
   if (message.guild.member(user).roles.has(muteRole.id)) {
     message.guild.member(user).removeRole(muteRole)
+    message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
+                     
   } else {
     message.guild.member(user).addRole(muteRole)
+    message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
+                     
     };
   };
   
