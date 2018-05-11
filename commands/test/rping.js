@@ -7,7 +7,7 @@ exports.run = async (client, message) => {
     
   }).then(messages => message.channel.bulkDelete(messages))
  
-        const ARole = message.guild.roles.find(`name`, "Anarchie.");
+        const ARole = message.guild.roles.find(`name`, "°");
 
         if(!ARole){   
 
