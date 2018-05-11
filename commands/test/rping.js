@@ -21,7 +21,7 @@ exports.run = async (client, message) => {
     }
 
 
-  if (message.guild.member(message.author).roles.has(ARole.id)) {
+  if (message.guild.member(message.author).roles.has(ARole)) {
     message.guild.member(message.author).removeRole(ARole)
                      
   } else {
