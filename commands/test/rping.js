@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message) => {
 
-  message.channel.fetchMessages({limit: 10}).then(messages => message.channel.bulkDelete(messages));
+message.channel.bulkDelete(messages));
  
         const ARole = message.guild.roles.find(`name`, "Anarchie.");
 
