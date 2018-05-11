@@ -3,9 +3,7 @@ const moment = require("moment");
 require("moment-duration-format");
 const ms = require('ms');
 const sm = require("string-similarity");
-const dateFormat = require('dateformat');
 
-dateFormat('dddd, mmmm dS, yyyy, h:MM:ss TT');
 
 exports.run = async (client, message, args) => {
 
@@ -43,24 +41,24 @@ exports.run = async (client, message, args) => {
         '***This message will dissappear in 60 seconds.***',
         [
             {
-                name: 'Status',
+                name: 'Statuts',
                 value: `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`,
             },
             {
-                name: 'Game',
-                value: `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Not playing a game.'}`,
+                name: 'Jeux',
+                value: `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Ne joue pas.'}`,
             },
             {
-                name: 'Created On',
-                value: `${dateFormat(user.createdAt)}`,
+                name: 'Créé le',
+                value: `${moment.utc(user.createdAt).format("dddd, mmmm dS, yyyy, h:MM:ss TT")}`,
             },
             {
                 name: 'Days Since Creation',
                 value: `${daysCreated.toFixed(0)}`,
             },
             {
-                name: 'Joined On',
-                value: `${dateFormat(member.joinedAt)}`,
+                name: 'Rejoin le',
+                value: `${moment.utc(member.joinedAt).format("dddd, mmmm dS, yyyy, h:MM:ss TT")}`,
             },
             {
                 name: 'Days Since Joining',
@@ -74,7 +72,7 @@ exports.run = async (client, message, args) => {
         ],
         {
             inline: true,
-            footer: `User ID: ${user.id}`,
+            footer: `ID: ${user.id}`,
             thumbnail: user.displayAvatarURL
         }
     );
