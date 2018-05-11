@@ -18,13 +18,11 @@ exports.run = async (client, message) => {
     }
 
 
-  if (message.guild.member(message.author).roles.has(muteRole.id)) {
-    message.guild.member(message.author).removeRole(muteRole)
-    message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
+  if (message.guild.member(message.author).roles.has(ARole.id)) {
+    message.guild.member(message.author).removeRole(ARole)
                      
   } else {
-    message.guild.member(message.author).addRole(muteRole)
-    message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
+    message.guild.member(message.author).addRole(ARole)
                      
     };
 };
