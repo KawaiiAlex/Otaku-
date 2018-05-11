@@ -8,20 +8,20 @@ const sm = require("string-similarity");
 exports.run = async (client, message, args) => {
 
  //Makes sure command is sent in a guild
-    if (!msg.guild) {
-        throw 'This can only be used in a guild!';
+    if (!message.guild) {
+        throw '9a ne peut être utiliser que dans un serveur';
     }
 
     //Makes sure user mentions a user to get info for
-    if (msg.mentions.users.size < 1) {
-        throw '@mention someone to find the info';
+    if (message.mentions.users.size < 1) {
+        throw '@mention quelqu\'un pour les infos';
     }
 
-    let user = msg.mentions.users.first();
-    let member = msg.guild.member(user);
+    let user = message.mentions.users.first();
+    let member = message.guild.member(user);
 
     if (!member) {
-        throw 'That member could not be found!';
+        throw 'Je ne trouve pas cette utilisateur';
     }
 
     //How long ago the account was created
@@ -37,8 +37,8 @@ exports.run = async (client, message, args) => {
     if (roles.length < 1) roles = ['None'];
 
     let embed = client.utils.embed(
-        `${user.username}#${msg.mentions.users.first().discriminator}`,
-        '***This message will dissappear in 60 seconds.***',
+        `${user.username}#${message.mentions.users.first().discriminator}`,
+        '***Ce message va se supprimer dans 60sec***',
         [
             {
                 name: 'Statuts',
@@ -77,7 +77,7 @@ exports.run = async (client, message, args) => {
         }
     );
 
-    (await msg.edit({ embed })).delete(60000);
+    (await message.edit({ embed })).delete(60000);
 };
 
 
