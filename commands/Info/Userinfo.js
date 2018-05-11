@@ -4,28 +4,39 @@ require("moment-duration-format");
 const ms = require('ms');
 const sm = require("string-similarity");
 
-
 exports.run = async (client, message, args) => {
+ 
+ 
+ 
+ if(message.author.bot) return;
+  if(message.channel.type !== "text") return;
 
- //Makes sure command is sent in a guild
-    if (!message.guild) {
-        throw '9a ne peut être utiliser que dans un serveur';
-    }
+  let members = [];
+  let indexes = [];
 
-    //Makes sure user mentions a user to get info for
-    if (message.mentions.users.size < 1) {
-        throw '@mention quelqu\'un pour les infos';
-    }
+  message.guild.members.forEach(function(member){
+    members.push(member.user.username);
+    indexes.push(member.id);
+  })
 
-    let user = message.mentions.users.first();
-    let member = message.guild.member(user);
+  let match = sm.findBestMatch(args, members);
+  let username = match.bestMatch.target;
 
-    if (!member) {
-        throw 'Je ne trouve pas cette utilisateur';
+    let member = message.guild.members.get(indexes[members.indexOf(username)])
+
+     let definedUser = "";
+     let definedUser2 = "";
+    if(!args[0]) {
+      definedUser = message.author
+      definedUser2 = message.member
+    } else {
+      let mention = message.mentions.users.first()
+      definedUser = mention || member.user
+        definedUser2 = message.mentions.members.first() || message.guild.members.get(args[0]) || member
     }
 
     //How long ago the account was created
-    const millisCreated = new Date().getTime() - user.createdAt.getTime();
+    const millisCreated = new Date().getTime() - definedUser.createdAt.getTime();
     const daysCreated = millisCreated / 1000 / 60 / 60 / 24;
 
     //How long about the user joined the server
@@ -77,19 +88,20 @@ exports.run = async (client, message, args) => {
         }
     );*/
 
+
     let UIEmbed = new Discord.RichEmbed()
-    .setDescription(`${user.username}#${message.mentions.users.first().discriminator}`, false)
-    .addField("Pseudo", user.username, true)
-    .addField("**#**", user.discriminator, false)
-    .setThumbnail(user.displayAvatarURL, false)
-    .addField("Statuts", `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`, false)
-    .addField("Jeux", `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Ne joue pas.'}`, false)
-    .addField("Compte créé le", `${moment.utc(user.createdAt).format("D/M/Y, HH:mm:ss")}`, true)
+    .setDescription(`${definedUser.username}#${message.mentions.users.first().discriminator}`, false)
+    .addField("Pseudo", definedUser.username, true)
+    .addField("**#**", definedUser.discriminator, false)
+    .setThumbnail(definedUser.displayAvatarURL, false)
+    .addField("Statuts", `${definedUser.presence.status[0].toUpperCase() + definedUser.presence.status.slice(1)}`, false)
+    .addField("Jeux", `${(definedUser.presence.game && definedUser.presence.game && definedUser.presence.game.name) || 'Ne joue pas.'}`, false)
+    .addField("Compte créé le", `${moment.utc(definedUser.createdAt).format("D/M/Y, HH:mm:ss")}`, true)
     .addField("Jours total", `${daysCreated.toFixed(0)}`, false)
     .addField("Rejoin le", `${moment.utc(member.joinedAt).format("D/M/Y, HH:mm:ss")}`, true)
     .addField("Jours total", `${daysJoined.toFixed(0)}`, false)
     .addField("Roles", `${roles.join(', ')}`)
-    .setFooter(`ID: ${user.id}`)
+    .setFooter(`ID: ${definedUser.id}`)
 
     message.channel.send(UIEmbed)
 };
