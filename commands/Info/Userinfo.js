@@ -78,7 +78,7 @@ exports.run = async (client, message, args) => {
     );*/
 
     let UIEmbed = new Discord.RichEmbed()
-    .setDescription(`${user.username}#${message.mentions.users.first().discriminator}\n***Ce message va se supprimer dans 60sec***`, false)
+    .setDescription(`${user.username}#${message.mentions.users.first().discriminator}`, false)
     .addField("Pseudo", user.username, true)
     .addField("**#**", user.discriminator, false)
     .setThumbnail(user.displayAvatarURL, false)
@@ -92,8 +92,6 @@ exports.run = async (client, message, args) => {
     .setFooter(`ID: ${user.id}`)
 
     message.channel.send(UIEmbed)
-
-    (await message.edit({ UIEmbed })).delete(60000);
 };
 
 
