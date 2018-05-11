@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
     let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
     if (roles.length < 1) roles = ['None'];
 
-    let embed = client.utils.embed(
+ /*   let embed = client.utils.embed(
         `${user.username}#${message.mentions.users.first().discriminator}`,
         '***Ce message va se supprimer dans 60sec***',
         [
@@ -75,9 +75,25 @@ exports.run = async (client, message, args) => {
             footer: `ID: ${user.id}`,
             thumbnail: user.displayAvatarURL
         }
-    );
+    );*/
 
-    (await message.edit({ embed })).delete(60000);
+    let UIEmbed = new Discord.RichEmbed()
+    .setDescription(`${user.username}#${message.mentions.users.first().discriminator}\n***Ce message va se supprimer dans 60sec***`, false)
+    .addField("Pseudo", user.username, true)
+    .addField("**#**", user.discriminator, false)
+    .setThumbnail(user.displayAvatarURL, false)
+    .addField("Statuts", `${user.presence.status[0].toUpperCase() + user.presence.status.slice(1)}`, false)
+    .addField("Jeux", `${(user.presence.game && user.presence.game && user.presence.game.name) || 'Ne joue pas.'}`, false)
+    .addField("Compte créé le", `${moment.utc(user.createdAt).format("dddd, mmmm dS, yyyy, h:MM:ss TT")}`, true)
+    .addField("Jours total", `${daysCreated.toFixed(0)}`, false)
+    .addField("Rejoin le", `${moment.utc(member.joinedAt).format("dddd, mmmm dS, yyyy, h:MM:ss TT")}`, true)
+    .addField("Jours total", `${daysJoined.toFixed(0)}`, false)
+    .addField("Roles", `${roles.join(', ')}`)
+    .setFooter(`ID: ${user.id}`)
+
+    message.channel.send(UIEmbed)
+
+    (await message.edit({ UIEmbed })).delete(60000);
 };
 
 
