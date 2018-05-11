@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = async (client, message) => {
 
   message.channel.fetchMessages({
-    limit: messagecount
+    limit: "1"
     
   }).then(messages => message.channel.bulkDelete(messages))
  
