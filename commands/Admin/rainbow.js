@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
+const config = require('../../config.json')
 exports.run = async (client, message, args) => {
 
     var logging = false
