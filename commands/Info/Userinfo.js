@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
     const millisJoined = new Date().getTime() - member.joinedAt.getTime();
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
   
-     let roles = definedUser.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
+     let roles = definedUser.roles.slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);
     if (roles.length < 1) roles = ['None'];
   
   let uEmbed = new Discord.RichEmbed()
