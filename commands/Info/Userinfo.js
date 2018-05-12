@@ -4,7 +4,7 @@ require("moment-duration-format");
 const ms = require('ms');
 const sm = require("string-similarity");
 
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
 
   if(message.author.bot) return;
   if(message.channel.type !== "text") return;
