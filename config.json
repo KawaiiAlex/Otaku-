@@ -15,5 +15,12 @@
  	"configRev": "0.1.5",
  	"language" : "fr",
   	"language_comments" : "en",
-  	"client_id": "410357219545317376"
+  	"client_id": "410357219545317376",
+		"servers": [
+		"390231856634789888"
+	],
+	"roleName": "Wouhou!",
+	"colors": 12,
+	"speed": 60000,
+	"logging": true
 }
