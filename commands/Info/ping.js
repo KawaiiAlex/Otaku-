@@ -2,17 +2,7 @@
 
 exports.run = async (client, message) => {
 
-
-/*const m = await message.channel.send("Ping?");
-
-        var PingEmbed = new Discord.RichEmbed()
-.setColor("#689AFB")
-.addField('Pong !', '***' + `${new Date().getTime() - message.createdTimestamp}` + ' ms***')
-.setFooter(`Ping`).setTimestamp();
-
-m.edit(PingEmbed);
-}*/
-message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimestamp} ms`, {code:'asciidoc'});
+message.channel.send(`**Otaku ボット ping!** :ping_pong: ${new Date().getTime() - message.createdTimestamp}ms`);
                      };
   
   
@@ -25,6 +15,6 @@ message.channel.send(`= Pong =\n\n${new Date().getTime() - message.createdTimest
   
   exports.help = {
     name: 'ping',
-    description: 'Ping/Pong command, vous donne aussi votre ping.',
+    description: 'Ping/Pong command, vous donne aussi le ping du bot.',
     usage: 'ping'
   };
