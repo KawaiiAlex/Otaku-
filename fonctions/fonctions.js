@@ -39,7 +39,7 @@ const fonctions = {
 
             search(song, opts, function(err, results) {
                
-                if (err) return msg.channel.send(":x: Video non trouvée ou une erreur s'est produite"); 
+                if (err) return msg.channel.send(":x: | Video non trouvée ou une erreur s'est produite"); 
                 
                 song = (song.includes("https://" || "http://")) ? song : results[0].link
 
@@ -73,7 +73,7 @@ const fonctions = {
             })
         } else if (queue.length != 0) {
             
-            if (!msg.guild.voiceConnection) return msg.channel.send(":x: Je ne suis pas connecté");
+            if (!msg.guild.voiceConnection) return msg.channel.send(":x: | Je ne suis pas connecté");
 
     ytdl.getInfo(queue[0].link, (err, info) =>{
 console.log(info)
@@ -81,12 +81,12 @@ console.log(info)
         .setAuthor(queue[0].title)
         .setThumbnail(queue[0].thumbnails) 
         .setColor(0xFF0000)
-        .addField(":bust_in_silhouette: Auteur", queue[0].channelTitle)
-        .addField(":date: Date de publication", queue[0].publication)
-        .addField(":link: Lien", queue[0].link)
+        .addField("__Auteur__", queue[0].channelTitle)
+        .addField("__Date de publication__", queue[0].publication)
+        .addField("__Lien__", queue[0].link)
         .setFooter("demandé par " + queue[0].requested);
     
-            msg.channel.send("**:headphones: En joue:**", embed);
+            msg.channel.send("**En écoute**", embed);
     })
 
             dispatcher = msg.guild.voiceConnection.playStream(queue[0].toplay)
@@ -106,7 +106,7 @@ console.log(info)
         })
             
         } else {
-            msg.channel.send(":warning: Il n'y a plus **aucunes** musiques dans la queue !")
+            msg.channel.send(":x: | Il n'y a pas de musique")
             
         }
     } catch (err) {
