@@ -11,17 +11,20 @@ exports.run = async (client, msg) => {
 
             if(!msg.guild.voiceConnection.player.dispatcher || msg.guild.voiceConnection.player.dispatcher.paused) return msg.channel.send(':x: | Il n\'y a pas de musique !');
 
-                msg.guild.voiceConnection.player.dispatcher.end()
-                msg.channel.send(':white_check_mark: | Changement de la musique en cours...');
+                let queue = client.fonctions.enqueue(msg.guild.id);
+
+                if (queue.length == 0) return message.channel.send(":x: | Il n'y a pas musiques dans la queue !").then(response => { response.delete(5000) });
+
+                 client.fonctions.play(msg, queue, queue[0].link)
 }
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["s"],
+    aliases: ["rp"],
     permLevel: 0
   };
 exports.help = {
-    name : "skip",
-    usage: "skip",
-    description: "Passer à la musique suivante"
+    name : "repeat",
+    usage: "repeat",
+    description: "Faire répéter la première musique de la file d'attente"
 }

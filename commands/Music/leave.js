@@ -8,13 +8,11 @@ exports.run = async (client, msg) => {
 
             }
 
-            if(!msg.guild.voiceConnection.player.dispatcher || msg.guild.voiceConnection.player.dispatcher.paused) return msg.channel.send(':x: | Il n\'y a pas de musique !');
-
-                msg.guild.voiceConnection.player.dispatcher.end()
+                msg.member.voiceChannel.leave();
 
             let queue = client.fonctions.enqueue(msg.guild.id);
 
-                msg.channel.send(`:white_check_mark: | Je me suis stoppé`);
+                msg.channel.send(`:white_check_mark: | Musique stopper et bot déconnecté !`);
 
                 if (queue.length == 0) return;
 
@@ -22,14 +20,16 @@ exports.run = async (client, msg) => {
                     queue.splice(i, 1);
                 }
 }
+
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["stop"],
+    aliases: ["l"],
     permLevel: 0
   };
-exports.help = {
-    name : "stop",
-    usage: "stop",
-    description: "Faire stop la queue et la mise en marche de la musique"
-}
+
+  exports.help = {
+    name: 'leave',
+    description: 'Fait quitte le salon vocal du bot',
+    usage: 'leave'
+  };

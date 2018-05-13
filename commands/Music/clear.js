@@ -13,22 +13,26 @@ exports.run = async (client, msg) => {
 
           let queue = client.fonctions.enqueue(msg.guild.id);
 
-            if (queue.length == 0) return msg.channel.send(":x: | Il n'y a pas musiques dans la queue !");
-            let text = '';
-            for (let i = 0; i < queue.length; i++) {
-                text += `${(i + 1)}. ${queue[i].title} | "Ajouté par ${queue[i].requested}"\n`
-            };
-            msg.channel.send(":white_check_mark: Playlist en cours:\n```js" + text + "```");
+            if (queue.length == 0) return msg.channel.send(":x: | Il n'y a pas de musique dans la queue");
+
+                msg.channel.send(":white_check_mark: | La queue actuelle a été supprimé");
+
+                for (var i = queue.length - 1; i >= 0; i--) {
+                    if (queue.length == 1) return;
+                    queue.splice(i, 1);
+                }
+
 
 }
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["q"],
+    aliases: ["c"],
     permLevel: 0
   };
-exports.help = {
-    name : "queue",
-    usage: "queue",
-    description: "Voir la file d'attente de musique du serveur"
-}
+
+  exports.help = {
+    name: 'clear',
+    description: 'Enlève toute les musiques',
+    usage: 'clear'
+  };
