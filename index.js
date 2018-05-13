@@ -104,7 +104,6 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
     client[f.split('.')[0]] = fonctions;
   });
 });
-    });
   var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 
