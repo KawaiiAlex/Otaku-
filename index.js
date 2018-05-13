@@ -95,6 +95,17 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
+      
+      fs.readdir('./fonctions/', (err, files) => {
+  if (err) return console.log(err);
+  console.log(`Nombre de plugins en chargement ${files.length}`);
+
+  files.forEach((f) => {
+    const fonctions = require(`./fonctions/${f}`);
+    client[f.split('.')[0]] = fonctions;
+  });
+});
+    });
   var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 
