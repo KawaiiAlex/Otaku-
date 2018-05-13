@@ -1,28 +1,29 @@
 const Discord = require('discord.js');
+const fs = require("fs");
 exports.run = (client, message, args) => {
-
-    var rand =  Math.floor(Math.random() * NUM_CRY)
-    let defineduser = message.mentions.users.first();
-
-    var CryEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
-    .setTitle(`${message.author.username} pleure de tristesse`)
-    .setImage(cry[rand].link)
-    .setFooter("cry");
-
-    message.channel.send(CryEmbed)
-        
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * (max + 1));
 }
-const NUM_CRY = 6;
-// cry Gifs
-var cry = [
-  {link:'https://cdn.weeb.sh/images/Syzw78XPZ.gif'},
-  {link:'https://cdn.weeb.sh/images/HymMXUQPW.gif'},
-  {link:'https://cdn.weeb.sh/images/ryap_aEC-.gif'},
-  {link:'https://cdn.weeb.sh/images/SJ-11x5kz.gif'},
-  {link:'https://cdn.weeb.sh/images/Bk_fmL7wZ.gif'},
-  {link:'https://cdn.weeb.sh/images/rJ5IX8XPZ.gif'}
-];
+
+  let defineduser = message.mentions.users.first();
+
+  fs.readFile('./Link/cry.txt', 'utf8', function(err, data) {
+      if (err) throw err;
+      var random = data.split('\n');
+      var num = getRandomInt(random.length);
+      var url = random[num];
+
+  
+
+      var Embed = new Discord.RichEmbed()
+  .setColor("#689AFB")
+  .setTitle(`**${message.author.username}** pleure de tristesse. **${defineduser.username}**`)
+  .setImage(url)
+  .setFooter("cry");
+
+  message.channel.send(Embed)
+});
+}
 
   
   exports.conf = {
