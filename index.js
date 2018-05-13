@@ -97,9 +97,8 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
     });
       
       fs.readdir('./fonctions/', (err, files) => {
-  if (err) return console.log(err);
+  if (err) console.error(err);
   console.log(`Nombre de plugins en chargement ${files.length}`);
-
   files.forEach((f) => {
     const fonctions = require(`./fonctions/${f}`);
     client[f.split('.')[0]] = fonctions;
