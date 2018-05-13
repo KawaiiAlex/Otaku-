@@ -63,7 +63,7 @@ const fonctions = {
                     "videoId": results[0].id,
                 })
                 
-            msg.channel.send(":satellite_orbital: **Ajout à la queue** - `" + queue[queue.length - 1].title + "`");
+            msg.channel.send(":white_check_mark: | Musique ajouté a la queue - ***" + queue[queue.length - 1].title + "***");
 		    
             if (test) {
                     setTimeout(function() {
