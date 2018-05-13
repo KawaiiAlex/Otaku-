@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
 
       var HugEmbed = new Discord.RichEmbed()
   .setColor("#689AFB")
-  .setTitle(`${message.author.username} fait un hug à ${defineduser.username}`)
+  .setTitle(`**${message.author.username}** câline **${defineduser.username}**`)
   .setImage(url)
   .setFooter("hug");
 
