@@ -18,7 +18,8 @@ exports.run = async (client, msg) => {
             for (let i = 0; i < queue.length; i++) {
                 text += `${(i + 1)}. ${queue[i].title} | "Ajouté par ${queue[i].requested}"\n`
             };
-            msg.channel.send(":white_check_mark: Playlist en cours:\n```js" + text + "```");
+            msg.channel.send(":white_check_mark: | Playlist en cours:text + "```");
+            msg.channel.send(`${text}`, {code:'js'});
 
 }
 exports.conf = {
