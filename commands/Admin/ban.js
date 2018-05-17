@@ -19,12 +19,14 @@ exports.run = (client, message, args) => {
   .addField("Time", message.createdAt)
   .addField("Reason", bReason);
 
-  let incidentchannel = message.guild.channels.find(`name`, "otaku-logs");
-  if(!incidentchannel) return message.channel.send("Je ne trouve pas le channel``otaku-logs``. \n Créé le svp C:");
 
   message.channel.send(`${bUser} à été ban avec succès 💫`).then(msg => {msg.delete(5000)});;
   message.guild.member(bUser).ban(bReason);
-  incidentchannel.send(banEmbed);
+  
+   let incidentchannel = message.guild.channels.find(`name`, "otaku-logs");
+  if(!incidentchannel) return message.channel.send("Je ne trouve pas le channel``otaku-logs``. \n Vous pouvez créé ce salon pour pouvoir enrengistré les actions de modération");
+  
+    incidentchannel.send(banEmbed);
 }
 
 
