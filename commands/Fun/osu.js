@@ -13,7 +13,6 @@ exports.run = async (client, message, args) => {
           message.channel.startTyping();
   message.channel.send({files: [new Attachment(`https://lemmmy.pw/osusig/sig.php?colour=pink&uname=${args}&pp=2&countryrank&flagstroke&darktriangles&onlineindicator=undefined&xpbar&xpbarhex`, `banner.png`)]})
             message.channel.stopTyping();
-          })
         }
     }
     
