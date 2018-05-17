@@ -3,13 +3,8 @@ exports.run = (client, message, args) => {
 
   var rand =  Math.floor(Math.random() * NUM_ANS)
   var text = message.content.substring(6)
-
-  let ballembed = new Discord.RichEmbed()
-  .setAuthor(message.author.tag)
-  .setColor("#42f453")
-  .addField("🎱Question", text)
-  .addField("🎱Réponse", m8ball[rand].reply);
-  message.channel.send(ballembed);
+
+  message.channel.send(´🎱 | **${m8ball[rand].reply}**, ${message.author.username}´);
 }
 
 const NUM_ANS = 19;
