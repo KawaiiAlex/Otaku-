@@ -32,7 +32,7 @@ var m8ball = [
 ];
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: [],
   permLevel: 0
