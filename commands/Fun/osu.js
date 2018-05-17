@@ -1,5 +1,3 @@
-69202a71cf116cfc8b3da4fbe4f0a8f7241767dc
-
 const osu = require('node-osu');
 const osuApi  = new osu.Api('a8fdf4f31ad6f6b0f8f4030d0942bc0411fa1511', {
     // baseUrl: sets the base api url (default: https://osu.ppy.sh/api)
