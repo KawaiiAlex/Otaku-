@@ -9,11 +9,10 @@ const Discord = require("discord.js")
 exports.run = async (client, message, args) => {
 
         if(!args[0]) return message.channel.sendMessage("Donnez un utilisateur valide")
-        if(args[1] === "recent") {
           message.channel.startTyping();
   message.channel.send({files: [new Attachment(`https://lemmmy.pw/osusig/sig.php?colour=pink&uname=${args}&pp=2&countryrank&flagstroke&darktriangles&onlineindicator=undefined&xpbar&xpbarhex`, `banner.png`)]})
             message.channel.stopTyping();
-        }
+       
     }
     
     exports.conf = {
