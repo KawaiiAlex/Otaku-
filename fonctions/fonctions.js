@@ -76,7 +76,6 @@ const fonctions = {
             if (!msg.guild.voiceConnection) return msg.channel.send(":x: | Je ne suis pas connecté");
 
     ytdl.getInfo(queue[0].link, (err, info) =>{
-console.log(info)
             let embed = new Discord.RichEmbed()
         .setAuthor(queue[0].title)
         .setThumbnail(queue[0].thumbnails) 
