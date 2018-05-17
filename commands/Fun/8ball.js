@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   var rand =  Math.floor(Math.random() * NUM_ANS)
   var text = message.content.substring(6)
 
-  message.channel.send(´🎱 | **${m8ball[rand].reply}**, ${message.author.username}´);
+  message.channel.send(´:8ball: | **${m8ball[rand].reply}**, ${message.author.username}´);
 }
 
 const NUM_ANS = 19;
