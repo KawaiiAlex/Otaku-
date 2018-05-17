@@ -8,15 +8,10 @@ const Discord = require("discord.js")
 
 exports.run = async (client, message, args) => {
 
-        if(!args[0]) return message.channel.sendMessage("Please specify a valid user!")
+        if(!args[0]) return message.channel.sendMessage("Donnez un utilisateur valide")
         if(args[1] === "recent") {
           message.channel.startTyping();
-          osuApi.getUserRecent({u: args[0]}).then(scores => {
-            const embed = new Discord.RichEmbed();
-            embed.setDescription(`**User**: ${args[0]}\n\n**Title of Beatmap**: ${scores[0][1].title}\n**Score**: ${scores[0][0].score}\n**Perfect?**: ${scores[0][0].perfect == true ? 'Yes.' : 'No.'}\n**Letter Ranking**: ${scores[0][0].rank}`)
-            embed.setFooter(`Score achieved on ${scores[0][0].date.toUTCString()}`)
-            embed.setColor(0xE25D9B)
-            message.channel.sendEmbed(embed)
+  message.channel.send({files: [new Attachment(`https://lemmmy.pw/osusig/sig.php?colour=pink&uname=${args}&pp=2&countryrank&flagstroke&darktriangles&onlineindicator=undefined&xpbar&xpbarhex`, `banner.png`)]})
             message.channel.stopTyping();
           })
         }
