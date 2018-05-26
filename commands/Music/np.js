@@ -37,7 +37,7 @@ exports.run = async (client, msg) => {
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ["c"],
+    aliases: ["nowplaying"],
     permLevel: 0
   };
 exports.help = {
