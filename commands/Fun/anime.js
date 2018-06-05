@@ -45,6 +45,6 @@ exports.conf = {
 
   exports.help = {
     name: 'anime',
-    description: 'Donne votre avatar ( et non celui d\'un autre )',
-    usage: 'anime'
+    description: 'Pour faire des recherche sur l\'anime de votre choix',
+    usage: 'anime <recherche>'
   };
