@@ -11,7 +11,7 @@ var text = message.content.substring(10)
 
 let ReverseEmbed = new Discord.RichEmbed()
   .setAuthor("Reverse")
-  .setColor("#42f453")
+  .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .addField("Avant", text)
   .addField("Après", args.join(' ').split('').reverse().join(''))
   message.channel.send(ReverseEmbed);

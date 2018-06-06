@@ -3,20 +3,13 @@ const client = new Discord.Client();
 const config = require('./config.json');
 const chalk = require('chalk');
 const fs = require('fs');
-const moment = require('moment');
 require('./util/eventLoader')(client);
-const YTDL = require("ytdl-core");
 const redcolor = chalk.keyword('red');
 const orangecolor = chalk.keyword('orange');
 const yellowcolor = chalk.keyword('yellow');
 const grencolor = chalk.keyword('green');
 const cyancolor = chalk.keyword('cyan');
 const bluecolor = chalk.keyword('blue');
-
-
-const log = message => {
-  console.log(`[${moment().format('HH:mm:ss')}] ${message}`);
-};
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -85,7 +78,7 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
       client.aliases.set(alias, props.help.name);
     });
   });
-    fs.readdir('./commands/Music/', (err, filesmusic) => {
+   /* fs.readdir('./commands/Music/', (err, filesmusic) => {
     if (err) console.error(err);
     console.log(cyancolor(`${filesmusic.length} commandes music,`));
     filesmusic.forEach(f => {
@@ -95,16 +88,8 @@ fs.readdir('./commands/NSFW/', (err, filesnsfw) => {
         client.aliases.set(alias, props.help.name);
       });
     });
-      
-      fs.readdir('./fonctions/', (err, files) => {
-  if (err) console.error(err);
-  console.log(`Nombre de plugins en chargement ${files.length}`);
-  files.forEach((f) => {
-    const fonctions = require(`./fonctions/${f}`);
-    client[f.split('.')[0]] = fonctions;
-  });
-});
-  var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length + filesmusic.length);
+  });*/
+  var totalcmd =  Math.floor(filesfun.length + filesinfo.length + filesmod.length + filessocial.length + filesnsfw.length + filesadmin.length);
 console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 
 });
@@ -113,7 +98,7 @@ console.log(bluecolor(`Il y a un total de ${totalcmd} commandes 👍.`));
 });
 });
 });
-});
+
 
 
 client.elevation = message => {
@@ -142,4 +127,4 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'qui a été expurgé')));
 });
 
-client.login(process.env.TOKEN);
+client.login("NDM4Mzk5NzA1NDg0MDk5NjA1.Dflr7Q.92NvbeXLhJycpBTutRzijpGnOMs");

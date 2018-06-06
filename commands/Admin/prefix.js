@@ -20,7 +20,7 @@ exports.run = async (client, message, args) => {
 
 
     let sEmbed = new Discord.RichEmbed()
-    .setColor("#FF9900")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .setTitle("Prefix mis")
     .setDescription(`Nouveau prefix: ${args[0]}`);
 

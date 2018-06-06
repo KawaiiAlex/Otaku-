@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
   const messagecount = parseInt(args.join(' '));
   var PurgeEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .addField("Purge", messagecount + " message supprimé")
     .setFooter(`${message.author.username} || Purge`).setTimestamp();
 

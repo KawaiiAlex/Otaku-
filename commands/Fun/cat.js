@@ -8,7 +8,7 @@ exports.run = async (client,message,args) => {
   .then(url => {
 
   let catembed = new Discord.RichEmbed()
-  .setColor("#42d9f4")
+  .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .setTitle(`${message.author.username} | Ton chaaaat!`)
   .setImage(url);
 

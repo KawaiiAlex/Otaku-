@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   
       let reportEmbed = new Discord.RichEmbed()
       .setDescription("Reports")
-      .setColor("#689AFB")
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
       .addField("Utilisateur report", `${rUser} with ID: ${rUser.id}`)
       .addField("Report par", `${message.author} with ID: ${message.author.id}`)
       .addField("Channel", message.channel)

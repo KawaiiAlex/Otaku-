@@ -17,7 +17,7 @@ return;
     .setDescription(`**${current.skytext}**`)
     .setAuthor(`Météo pour ${current.observationpoint}`)
     .setThumbnail(current.imageUrl)
-    .setColor(0x00AE86)
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .addField('Fuseau horaire', `UTC${location.timezone}, true`)
     .addField('Type de degré', location.degreetype, true)
     .addField('Temperature', `${current.temperature} Degrés`, true)

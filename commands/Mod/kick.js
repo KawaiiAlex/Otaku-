@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~", false)
-    .setColor("#689AFB", false)
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`, false)
     .addField("Utilisateur kick", `${kUser.tag} ID ${kUser.tag}`, false)
     .addField("Kick par", `${message.author.tag} with ID ${message.author.id}`, false)
     .addField("Kick dans", `<#${message.channel.id}>`, false)

@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
   
 
       var Embed = new Discord.RichEmbed()
-  .setColor("#689AFB")
+  .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .setTitle(`**${message.author.username}** pleure de tristesse. **${defineduser.username}**`)
   .setImage(url)
   .setFooter("cry");

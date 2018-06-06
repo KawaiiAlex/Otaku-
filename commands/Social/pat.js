@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let defineduser = message.mentions.users.first();
     if(!defineduser) return message.channel.send("Tu dois mentionner quelqu'un")
     var KissEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .setTitle(`${message.author.username} caresse ${defineduser.username}`)
     .setImage(pat[rand].link)
     .setFooter("pat");

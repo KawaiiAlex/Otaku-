@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
     let Embed = new Discord.RichEmbed()
     .setTitle('Poke 👉')
     .addField('Tu as juste été toucher.', `Par: ${user}`, true)
-    .setColor(0xD4AF37)
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     defineduser.send(Embed)
                   }
 }    

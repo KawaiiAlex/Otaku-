@@ -18,8 +18,7 @@ exports.run = (client, message, params) => {
     .setColor("#689AFB")
     .addField("Modération", "`ban`, `kick`, `mute`, `tempmute`, `lockdown`, `purge`, `addrole`, `removerole`, `unban`, `prefix`")
     .addField("Information", "`help`, `botinfo`, `serverinfo`, `userinfo`, `report`, `ping`, `otaku`, `invite`, `weather`, `google`, `youtube`, `time`")
-    .addField("Fun", "`8ball`, `anime`, `avatar`, `cat`, `poke`, `pollc`, `quiz`, `reverse`, `roll`, `say`")
-    .addField("Music", "`clear`, `leave`, `np`, `pause`, `play`, `queue`, `radio`, `repeat`, `resume`, `skip`, `stop`, `volume`")
+    .addField("Fun", "`8ball`, `anime`, `avatar`, `cat`, `poke`, `pollc`, `quiz`, `reverse`, `roll`, `say`")  
     .addField("Social", "`cry`, `kiss`, `punch`, `pout`, `pat`, `hug`")
     .addField("NSFW", "`4k`, `amateur`, `asian`, `cosplay`, `dick`, `gif`, `hentai`, `milf`, `public`, `pussy`, `snapchat`, `uniform`")
     .setFooter("๖̶̶̶ζ͜͡Bot par Kawaii Alex ͜͡ζ̶̶̶๖", client.users.get('281125214098685954').displayAvatarURL);

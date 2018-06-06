@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let defineduser = message.mentions.users.first();
 
     var PunchEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .setTitle(`${message.author.username} frappe ${defineduser.username}`)
     .setImage(punch[rand].link)
     .setFooter("Punch").setTimestamp();

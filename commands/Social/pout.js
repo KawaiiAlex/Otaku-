@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let defineduser = message.mentions.users.first();
 
     var PoutEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .setTitle(`${message.author.username} boude ${defineduser.username}`)
     .setImage(pout[rand].link)
     .setFooter("Pout").setTimestamp();

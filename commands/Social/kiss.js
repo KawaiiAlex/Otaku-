@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let defineduser = message.mentions.users.first();
 
     var KissEmbed = new Discord.RichEmbed()
-    .setColor("#689AFB")
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
     .setTitle(`${message.author.username} fait un kiss à ${defineduser.username}`)
     .setImage(kiss[rand].link)
     .setFooter("kiss");

@@ -11,16 +11,7 @@
 	"green": "#00ff26",
 	"purple": "#d604cf",
   	"status": "ONLINE",
-  	"youtube_api_key": "YTAPI",
  	"configRev": "0.1.5",
  	"language" : "fr",
-  	"language_comments" : "en",
-  	"client_id": "410357219545317376",
-		"servers": [
-		"390231856634789888"
-	],
-	"roleName": "Wouhou!",
-	"colors": 12,
-	"speed": 60000,
-	"logging": false
+  	"language_comments" : "en"
 }

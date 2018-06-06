@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
 
   let banEmbed = new Discord.RichEmbed()
   .setDescription("~Ban~")
-  .setColor("#bc0000")
+  .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .addField("Banned User", `${bUser} with ID ${bUser.id}`)
   .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
   .addField("Banned In", message.channel)
