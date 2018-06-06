@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const Discord = require('discord.js');
 const fs = require("fs");
-const config = require('../../config.json')
+const config = require('../config.json')
 const purplecolor = chalk.keyword('purple');
 const ownerBot = client.users.get('281125214098685954').tag
   if (message.author.bot) return;
