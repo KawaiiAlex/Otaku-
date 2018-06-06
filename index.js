@@ -127,4 +127,4 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'qui a été expurgé')));
 });
 
-client.login("NDM4Mzk5NzA1NDg0MDk5NjA1.Dflr7Q.92NvbeXLhJycpBTutRzijpGnOMs");
+client.login(process.env.TOKEN);
