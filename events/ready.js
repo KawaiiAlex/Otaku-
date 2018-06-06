@@ -3,18 +3,15 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const config = require('../config.json')
 const purplecolor = chalk.keyword('purple');
-  if (message.author.bot) return;
-  if(message.channel.type === "dm") return;
 
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+module.exports = client => { // eslint-disable-line no-unused-vars
+    let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
   if(!prefixes[message.guild.id]){
     prefixes[message.guild.id] = {
       prefixes: config.prefix
     };
   }
   let prefix = prefixes[message.guild.id].prefixes;
-
-module.exports = client => { // eslint-disable-line no-unused-vars
   const ownerBot = client.users.get('281125214098685954').tag
   console.log(purplecolor(`${client.user.username} en ligne. \n` + 'Connecté dans:\n' + client.guilds.array()));
  client.user.setGame(prefix + ' help pour plus d\'info | ' + client.guilds.size() + ' serveurs | créé par ' + ownerBot, 'https://www.twitch.tv/ryvalgaming')
