@@ -4,14 +4,26 @@ exports.run = (client, message, args) => {
     var rand =  Math.floor(Math.random() * NUM_PUNCH)
     let defineduser = message.mentions.users.first();
 
+    if(!defineduser) {
+    
+      var PunchEmbed = new Discord.RichEmbed()
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+      .setDescription(`**${message.author.tag}** 𝒇𝒓𝒂𝒑𝒑𝒆 **${client.user.tag}**`)
+      .setImage(punch[rand].link)
+      .setFooter("(◣_◢)ノ").setTimestamp();
+  
+      message.channel.send(PunchEmbed)
+
+    } else {
+
     var PunchEmbed = new Discord.RichEmbed()
     .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-    .setTitle(`${message.author.username} frappe ${defineduser.username}`)
+    .setDescription(`**${message.author.tag}** 𝒇𝒓𝒂𝒑𝒑𝒆 **${defineduser.tag}**`)
     .setImage(punch[rand].link)
-    .setFooter("Punch").setTimestamp();
+    .setFooter("(◣_◢)ノ").setTimestamp();
 
     message.channel.send(PunchEmbed)
-        
+    }
 }
 const NUM_PUNCH = 7;
 // Hug Gifs

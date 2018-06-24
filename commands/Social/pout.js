@@ -4,14 +4,25 @@ exports.run = (client, message, args) => {
     var rand =  Math.floor(Math.random() * NUM_POUT)
     let defineduser = message.mentions.users.first();
 
+    if(!defineduser) {
+      var PoutEmbed = new Discord.RichEmbed()
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+      .setDescription(`**${message.author.tag}** 𝒃𝒐𝒖𝒅𝒆 **${client.user.tag}**`)
+      .setImage(pout[rand].link)
+      .setFooter("<º)))><").setTimestamp();
+  
+      message.channel.send(PoutEmbed)
+    } else {
+
+    
     var PoutEmbed = new Discord.RichEmbed()
     .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-    .setTitle(`${message.author.username} boude ${defineduser.username}`)
+    .setDescription(`**${message.author.tag}** 𝒃𝒐𝒖𝒅𝒆 **${defineduser.tag}**`)
     .setImage(pout[rand].link)
-    .setFooter("Pout").setTimestamp();
+    .setFooter("<º)))><").setTimestamp();
 
     message.channel.send(PoutEmbed)
-        
+    } 
 }
 const NUM_POUT = 5;
 // Kiss Gifs

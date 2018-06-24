@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 
 
 exports.run = (client, message, args) => {
-    if (!message.channel.nsfw) return message.channel.send(":underage: Ce n'est pas un channel NSFW.")
+  if (!message.channel.nsfw) return message.channel.send(":underage: **|** 𝑪𝒆 𝒏'𝒆𝒔𝒕 𝒑𝒂𝒔 𝒖𝒏 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 𝒏𝒔𝒘𝒇 ¯\_(͡° ͜ʖ ͡°)_/¯")
     var text = message.content.substring(6)
 
     if(message.author.bot) return;
@@ -17,7 +17,8 @@ exports.run = (client, message, args) => {
                       .setTimestamp()
                       .setImage(url)
                       .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-                      message.channel.send(`<@${message.author.id}> baise ${text}`)
+                      .setFooter("(͡° ͜ʖ ͡°)").setTimestamp();
+                      message.channel.send(`<@${message.author.id}> 𝒃𝒂𝒊𝒔𝒆 ${text}`)
                        message.channel.send({ embed });
     })
 

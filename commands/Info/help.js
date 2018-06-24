@@ -14,14 +14,14 @@ exports.run = (client, message, params) => {
   let prefix = prefixes[message.guild.id].prefixes;
   if (!params[0]) {
     var HelpEmbed = new Discord.RichEmbed()
-    .setTitle(`Utilise ${prefix}help <commande> pour les infos de la commande`)
-    .setColor("#689AFB")
-    .addField("Modération", "`ban`, `kick`, `mute`, `tempmute`, `lockdown`, `purge`, `addrole`, `removerole`, `unban`, `prefix`")
-    .addField("Information", "`help`, `botinfo`, `serverinfo`, `userinfo`, `report`, `ping`, `otaku`, `invite`, `weather`, `google`, `youtube`, `time`")
-    .addField("Fun", "`8ball`, `anime`, `avatar`, `cat`, `poke`, `pollc`, `quiz`, `reverse`, `roll`, `say`")  
-    .addField("Social", "`cry`, `kiss`, `punch`, `pout`, `pat`, `hug`")
-    .addField("NSFW", "`4k`, `amateur`, `asian`, `cosplay`, `dick`, `gif`, `hentai`, `milf`, `public`, `pussy`, `snapchat`, `uniform`")
-    .setFooter("๖̶̶̶ζ͜͡Bot par Kawaii Alex ͜͡ζ̶̶̶๖", client.users.get('281125214098685954').displayAvatarURL);
+    .setDescription(`𝑼𝒕𝒊𝒍𝒊𝒔𝒆 \`${prefix}help <commande>\` 𝒑𝒐𝒖𝒓 𝒑𝒍𝒖𝒔 𝒅'𝒊𝒏𝒇𝒐𝒔 𝒔𝒖𝒓 𝒍𝒂 𝒄𝒐𝒎𝒎𝒂𝒏𝒅𝒆 (• ε •)`)
+    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+    .addField("𝑴𝒐𝒅𝒆́𝒓𝒂𝒕𝒊𝒐𝒏 (⌐■_■)--︻╦╤─", "`ban`, `kick`, `mute`, `tempmute`, `lockdown`, `purge`, `addrole`, `removerole`, `unban`, `prefix`")
+    .addField("𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏 (∩｀-´)⊃━━☆ﾟ.*･｡ﾟ", "`help`, `botinfo`, `serverinfo`, `userinfo`, `report`, `ping`, `invite`, `weather`, `google`, `youtube`, `translate`")
+    .addField("𝑭𝒖𝒏 ヘ( ^o^)ノ＼(^_^ )", "`8ball`, `anime`, `avatar`, `poke`, `pollc`, `quizg`, `reverse`, `roll`, `say`")  
+    .addField("𝑺𝒐𝒄𝒊𝒂𝒍 (╭☞⚆ᗜ⚆)╭☞", "`cry`, `kiss`, `punch`, `pout`, `pat`, `hug`")
+    .addField("𝑵𝑺𝑭𝑾 (͡° ͜ʖ ͡°)", "`4k`, `amateur`, `asian`, `cosplay`, `dick`, `gif`, `hentai`, `milf`, `public`, `pussy`, `snapchat`, `uniform`, `fuck`")
+    .setFooter("๖̶̶̶ζ͜͡𝑩𝒐𝒕 𝒑𝒂𝒓 𝑲𝒂𝒘𝒂𝒊𝒊 𝑨𝒍𝒆𝒙 ͜͡ζ̶̶̶๖", client.users.get('281125214098685954').displayAvatarURL);
 
     message.channel.send(HelpEmbed)
 
@@ -30,11 +30,11 @@ exports.run = (client, message, params) => {
     if (client.commands.has(command)) {
       command = client.commands.get(command);
       var HelpEmbed2 = new Discord.RichEmbed()
-      .setTitle(`Commande: ${command.help.name}`)
-      .setColor("#689AFB")
-      .addField("__Description__:", command.help.description)
-      .addField("__Utilisation__:", prefix+command.help.usage)
-      .addField("__Aliase__:", command.conf.aliases)
+      .setTitle(`𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒆: ${command.help.name}`)
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+      .addField("__𝑫𝒆𝒔𝒄𝒓𝒊𝒑𝒕𝒊𝒐𝒏__:", command.help.description)
+      .addField("__𝑼𝒕𝒊𝒍𝒊𝒔𝒂𝒕𝒊𝒐𝒏__:", prefix+command.help.usage)
+      .addField("__𝑨𝒍𝒊𝒂𝒔𝒆__:", command.conf.aliases)
       message.channel.send(HelpEmbed2);
     }
   }
@@ -50,5 +50,5 @@ exports.conf = {
 exports.help = {
   name: 'help',
   description: 'Montre tout les commandes existantes sur le bot',
-  usage: 'help [command]'
+  usage: 'help <command>'
 };

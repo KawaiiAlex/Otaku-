@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+﻿const Discord = require("discord.js");
 const sm = require("string-similarity");
 
 exports.run = (client, message, args) => {
@@ -31,8 +31,9 @@ exports.run = (client, message, args) => {
     
     message.channel.send({embed: new Discord.RichEmbed()
                           .setImage(definedUser.avatarURL)
-                          .setTitle(`Avatar de ` + definedUser.tag)
+                          .setTitle(`𝑨𝒗𝒂𝒕𝒂𝒓 𝒅𝒆 ` + definedUser.tag)
                           .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+                          .setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
                          })
     
   

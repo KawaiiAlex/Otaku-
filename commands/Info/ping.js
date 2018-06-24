@@ -2,7 +2,7 @@
 
 exports.run = async (client, message) => {
 
-message.channel.send(`**Otaku ボット ping!** :ping_pong: ${new Date().getTime() - message.createdTimestamp}ms`);
+message.channel.send(`𝑶𝒕𝒂𝒌𝒖 ボット 𝒑𝒊𝒏𝒈! :ping_pong: **${new Date().getTime() - message.createdTimestamp}**𝒎𝒔`);
                      };
   
   

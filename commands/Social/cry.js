@@ -13,15 +13,24 @@ exports.run = (client, message, args) => {
       var num = getRandomInt(random.length);
       var url = random[num];
 
-  
+  if(!defineduser) {
+    var Embed = new Discord.RichEmbed()
+  .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+  .setDescription(`**${message.author.tag}** 𝒑𝒍𝒆𝒖𝒓𝒆 𝒅𝒆 𝒕𝒓𝒊𝒔𝒕𝒆𝒔𝒔𝒆 (╥﹏╥)`)
+  .setImage(url)
+  .setFooter("cry").setTimestamp();
+
+  message.channel.send(Embed)
+  } else {
 
       var Embed = new Discord.RichEmbed()
   .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-  .setTitle(`**${message.author.username}** pleure de tristesse. **${defineduser.username}**`)
+  .setDescription(`**${message.author.tag}** 𝒑𝒍𝒆𝒖𝒓𝒆 𝒅𝒆 𝒕𝒓𝒊𝒔𝒕𝒆𝒔𝒔𝒆 𝒂̀ **${defineduser.tag}** (╥﹏╥)`)
   .setImage(url)
-  .setFooter("cry");
+  .setFooter("cry").setTimestamp();
 
   message.channel.send(Embed)
+  }
 });
 }
 

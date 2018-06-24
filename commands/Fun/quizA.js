@@ -27,7 +27,7 @@ const options = {
 
 exports.run = async (bot, message, args) => {
 
-  const item = quiz[Math.floor(Math.random() * quiz.length)];
+  /*const item = quiz[Math.floor(Math.random() * quiz.length)];
   await message.channel.send(item.q);
   try {
     const collected = await message.channel.awaitMessages(answer => item.a.includes(answer.content.toLowerCase()), options);
@@ -46,7 +46,8 @@ exports.run = async (bot, message, args) => {
                                  .setTitle(`Bonne réponse: \`${item.a}\``)
                                  .setFooter(`Question: ${item.q}`)
     return message.channel.send(embedtime)
-  }
+  }*/
+  message.channel.send("```css\n𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒆 𝒆𝒏 𝒑𝒓𝒆́𝒑𝒂𝒓𝒂𝒕𝒊𝒐𝒏...\n```")
 }
 exports.conf = {
     enabled: true,

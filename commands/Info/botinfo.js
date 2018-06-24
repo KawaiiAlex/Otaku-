@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 const ms = require("ms");
 const moment = require ("moment")
-exports.run = (client, message) => {
- const ownerBot = client.users.get('281125214098685954').username
-const used = process.memoryUsage().heapUsed / 1024 / 1024;
+exports.run = (client, message, args) => {
+ const ownerBot = client.users.get('281125214098685954').tag;
   let ms = client.uptime;
   let cd = 24 * 60 * 60 * 1000; // Calc days
   let ch = 60 * 60 * 1000; // Calc hours
@@ -67,21 +66,21 @@ const used = process.memoryUsage().heapUsed / 1024 / 1024;
   dateString += dateStrings[dateStrings.length - 1];
       let bicon = client.user.displayAvatarURL;
       let botembed = new Discord.RichEmbed()
-      .setTitle("Information sur le bot")
+      .setTitle("𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏 𝒔𝒖𝒓 𝒍𝒆 𝒃𝒐𝒕")
       .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
       .setThumbnail(bicon)
-      .addField("Nom du bot", client.user.username, false)
-      .addField("Bot créé le",`${moment.utc(client.user.createdAt).format("D/M/Y, HH:mm:ss")}`, false )
-      .addField ('Mémoire utilisé' , `${Math.round(used * 100) / 100} MB/500MB`, false)
-  .addField('Le bot est allumé depuis :', dateString, false )
-              .addField ('Librairie', 'Discord.js', false)
-  .addField ("ID du bot ", client.user.id,false )
-      .addField ("Créateur du bot", ownerBot, false)
-    .addField ("Serveur total", client.guilds.size, false)
-  	.addField ("Membre total", client.users.size, false)
-  	.addField ("Langage", "JavaScript", false)
-    .addField("Ajouter mon bot", "Tu peux ajouter mon bot en cliquant [ici](https://discordapp.com/oauth2/authorize?client_id=410357219545317376&scope=bot&permissions=2146958591%22)", false)
-    .setFooter("๖̶̶̶ζ͜͡Bot par Kawaii Alex ͜͡ζ̶̶̶๖", client.users.get('281125214098685954').displayAvatarURL, false);
+      .addField("𝑵𝒐𝒎 𝒅𝒖 𝒃𝒐𝒕", client.user.username, false)
+      .addField("𝑩𝒐𝒕 𝒄𝒓𝒆́𝒆́ 𝒍𝒆",`${moment.utc(client.user.createdAt).format("D/M/Y, HH:mm:ss")}`, false )
+     // .addField ('𝑴𝒆́𝒎𝒐𝒊𝒓𝒆 𝒖𝒕𝒊𝒍𝒊𝒔𝒆́' , `${Math.round(used * 100) / 100} MB/500MB`, false)
+  .addField('𝑳𝒆 𝒃𝒐𝒕 𝒆𝒔𝒕 𝒂𝒍𝒍𝒖𝒎𝒆́ 𝒅𝒆𝒑𝒖𝒊𝒔 :', dateString, false )
+              .addField ('𝑳𝒊𝒃𝒓𝒂𝒊𝒓𝒊𝒆', 'Discord.js', false)
+  .addField ("𝑰𝑫 𝒅𝒖 𝒃𝒐𝒕 ", client.user.id,false )
+      .addField ("𝑪𝒓𝒆́𝒂𝒕𝒆𝒖𝒓 𝒅𝒖 𝒃𝒐𝒕", ownerBot, false)
+    .addField ("𝑺𝒆𝒓𝒗𝒆𝒖𝒓 𝒕𝒐𝒕𝒂𝒍", client.guilds.size, false)
+  	.addField ("𝑴𝒆𝒎𝒃𝒓𝒆 𝒕𝒐𝒕𝒂𝒍", client.users.size, false)
+  	.addField ("𝑳𝒂𝒏𝒈𝒖𝒂𝒈𝒆", "JavaScript", false)
+    .addField("𝑨𝒋𝒐𝒖𝒕𝒆𝒓 𝒎𝒐𝒏 𝒃𝒐𝒕", "𝑻𝒖 𝒑𝒆𝒖𝒙 𝒂𝒋𝒐𝒖𝒕𝒆𝒓 𝒎𝒐𝒏 𝒃𝒐𝒕 𝒆𝒏 𝒄𝒍𝒊𝒒𝒖𝒂𝒏𝒕 [𝒊𝒄𝒊](https://discordapp.com/oauth2/authorize?client_id=410357219545317376&scope=bot&permissions=2146958591%22)", false) 
+    .setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
 
 
     message.channel.send(botembed);

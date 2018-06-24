@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 exports.run = (client, message) => {
 
-    message.channel.send('Le lien est en mp')
+    message.channel.send('𝑳𝒆 𝒍𝒊𝒆𝒏 𝒆𝒔𝒕 𝒆𝒏 𝒎𝒑')
 
         var PingEmbed = new Discord.RichEmbed()
-.setColor("#689AFB")
-.addField("Voici le lien pour m'ajouter", "https://discordapp.com/oauth2/authorize?client_id=410357219545317376&scope=bot&permissions=2146958591%22")
-.setFooter(`invite`).setTimestamp();
+.setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+.addField("𝑽𝒐𝒊𝒄𝒊 𝒍𝒆 𝒍𝒊𝒆𝒏 𝒑𝒐𝒖𝒓 𝒎'𝒂𝒋𝒐𝒖𝒕𝒆𝒓", "https://discordapp.com/oauth2/authorize?client_id=410357219545317376&scope=bot&permissions=2146958591%22")
+.setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
 
 message.author.send(PingEmbed)
 

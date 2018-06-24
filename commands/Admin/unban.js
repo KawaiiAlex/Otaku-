@@ -1,32 +1,24 @@
 exports.run = (client, message, args) => {
     client.unbanAuth = message.author;
     const user = args[0];
-    const modlog = client.channels.find('name', 'otaku-logs');
 
-    if (!message.channel.permissionsFor(message.author).hasPermission("BAN_MEMBERS")) {
-      message.reply (" Tu n'as pas la permission").then(msg => {msg.delete(5000)});
-      return;
-    }
-    else if (!message.channel.permissionsFor(client.user).hasPermission("BAN_MEMBERS")) {
-      message.reply ("Je n'es pas la permission ").then(msg => {msg.delete(5000)});
-      return;
-    }
+    if(!message.channel.permissionsFor(message.author).has("BAN_MEMBERS")) return message.channel.send(":x: **|** 𝑻𝒖 𝒏'𝒂𝒔 𝒑𝒂𝒔 𝒍𝒆𝒔 𝒅𝒓𝒐𝒊𝒕𝒔 ヽ(ヅ)ノ").then(msg => {msg.delete(5000)});
+    if(!message.channel.permissionsFor(client.user).has("BAN_MEMBERS")) return message.channel.send(":x: **|** 𝑱𝒆 𝒏'𝒂𝒊 𝒑𝒂𝒔 𝒍𝒆𝒔 𝒅𝒓𝒐𝒊𝒕𝒔 （ つ﹏╰）").then(msg => {msg.delete(5000)});;
 
-    if (!modlog) return message.reply('Je ne trouve pas le channel ``otaku-logs``');
-    if (!user) return message.reply('Tu dois mettre l\'ID de la personne a deban').catch(console.error);
+    if (!user) return message.reply(':x: **|** 𝑻𝒖 𝒅𝒐𝒊𝒔 𝒅𝒆́𝒇𝒊𝒏𝒊𝒓 𝒍\'𝑰𝑫 𝒅𝒆 𝒍𝒂 𝒑𝒆𝒓𝒔𝒐𝒏𝒏𝒆 𝒂̀ 𝒅𝒆𝒃𝒂𝒏 ¯\_(ツ)_/¯').catch(console.error);
     message.guild.unban(user);
-    message.channel.send(`<@${user}> a bien été deban`).then(msg => {msg.delete(5000)});
+    message.channel.send(`:white_check_mark: **|** **<@${user}>** 𝒂 𝒃𝒊𝒆𝒏 𝒆́𝒕𝒆́ 𝒅𝒆𝒃𝒂𝒏 ✌(◕‿-)✌`).then(msg => {msg.delete(5000)});
   };
   
   exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: ['deban'],
-    permLevel: 2
+    permLevel: 0
   };
   
   exports.help = {
     name: 'unban',
-    description: 'Unbans the user.',
-    usage: 'unban [ID]'
+    description: 'Unban un utilisateur.',
+    usage: 'unban <ID>'
   };

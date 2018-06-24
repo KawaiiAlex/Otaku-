@@ -4,13 +4,23 @@ exports.run = (client, message, args) => {
     var rand =  Math.floor(Math.random() * NUM_KISS)
     let defineduser = message.mentions.users.first();
 
-    var KissEmbed = new Discord.RichEmbed()
-    .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-    .setTitle(`${message.author.username} fait un kiss à ${defineduser.username}`)
-    .setImage(kiss[rand].link)
-    .setFooter("kiss");
+    if(!defineduser){
+      var KissEmbed = new Discord.RichEmbed()
+.setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+.setDescription(`**${message.author.tag}** 𝒇𝒂𝒊𝒕 𝒖𝒏 𝒃𝒊𝒔𝒐𝒖𝒔 𝒂̀ **${client.user.tag}**`)
+.setImage(kiss[rand].link)
+.setFooter("( ˘ ³˘)❤").setTimestamp();
 
-    message.channel.send(KissEmbed)
+message.channel.send(KissEmbed)
+    } else {
+      var KissEmbed = new Discord.RichEmbed()
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+      .setDescription(`**${message.author.tag}** 𝒇𝒂𝒊𝒕 𝒖𝒏 𝒃𝒊𝒔𝒐𝒖𝒔 𝒂̀ **${defineduser.tag}**`)
+      .setImage(kiss[rand].link)
+      .setFooter("( ˘ ³˘)❤").setTimestamp();
+  
+      message.channel.send(KissEmbed)
+    }
         
 }
 const NUM_KISS = 8;

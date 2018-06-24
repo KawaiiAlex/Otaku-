@@ -3,15 +3,23 @@ exports.run = (client, message, args) => {
 
     var rand =  Math.floor(Math.random() * NUM_PAT)
     let defineduser = message.mentions.users.first();
-    if(!defineduser) return message.channel.send("Tu dois mentionner quelqu'un")
-    var KissEmbed = new Discord.RichEmbed()
+    if(!defineduser) {
+      var PatEmbed = new Discord.RichEmbed()
+      .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
+      .setDescription(`**${message.author.tag}** 𝒄𝒂𝒓𝒆𝒔𝒔𝒆 **${client.user.tag}**`)
+      .setImage(pat[rand].link)
+      .setFooter("ヘ( ^o^)ノ＼(^_^ )").setTimestamp();
+  
+      message.channel.send(PatEmbed)
+    } else {
+    var PatEmbed = new Discord.RichEmbed()
     .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-    .setTitle(`${message.author.username} caresse ${defineduser.username}`)
+    .setDescription(`**${message.author.tag}** 𝒄𝒂𝒓𝒆𝒔𝒔𝒆 **${defineduser.tag}**`)
     .setImage(pat[rand].link)
-    .setFooter("pat");
+    .setFooter("ヘ( ^o^)ノ＼(^_^ )").setTimestamp();
 
-    message.channel.send(KissEmbed)
-        
+    message.channel.send(PatEmbed)
+    }
 }
 const NUM_PAT = 6;
 // pat Gifs
