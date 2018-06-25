@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const fs = require("fs");
 exports.run = async (client, message, args) => {
 
-  if(!message.channel.permissionsFor(message.author).has("ADMINISTRATOR"))  return message.reply(":x: **|** 𝑻𝒖 𝒏'𝒂𝒔 𝒑𝒂𝒔 𝒍𝒆𝒔 𝒅𝒓𝒐𝒊𝒕𝒔 ヽ(ヅ)ノ");
-  if(!args[0]) return message.channel.send(":x: **|** 𝑻𝒖 𝒅𝒐𝒊𝒔 𝒅𝒆́𝒇𝒊𝒏𝒊𝒓 𝒖𝒏 𝒑𝒓𝒆́𝒇𝒊𝒙 (ಠ⌣ಠ)")
+  if(!message.channel.permissionsFor(message.author).has("ADMINISTRATOR"))  return message.reply(":x: **|** Tu n'as pas les droits ヽ(ヅ)ノ");
+  if(!args[0]) return message.channel.send(":x: **|** Tu dois définir un préfix (ಠ⌣ಠ)")
 
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
@@ -21,8 +21,8 @@ exports.run = async (client, message, args) => {
 
     let sEmbed = new Discord.RichEmbed()
     .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-    .setTitle("𝑷𝒓𝒆́𝒇𝒊𝒙 𝒎𝒊𝒔")
-    .setDescription(`𝑵𝒐𝒖𝒗𝒆𝒂𝒖 𝒑𝒓𝒆́𝒇𝒊𝒙: **${args[0]}**`);
+    .setTitle("Préfix mis ( ＾◡＾)っ❤")
+    .setDescription(`Nouveau préfix: **${args[0]}**`);
 
     message.channel.send(sEmbed);
 
