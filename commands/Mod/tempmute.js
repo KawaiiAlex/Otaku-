@@ -7,23 +7,23 @@ exports.run = async (bot, message, args) => {
 
   let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
-  if(!message.channel.permissionsFor(message.author).has("MANAGE_ROLES")) return message.channel.send(":x: **|** 𝑻𝒖 𝒏'𝒂𝒔 𝒑𝒂𝒔 𝒍𝒆𝒔 𝒅𝒓𝒐𝒊𝒕𝒔 ヽ(ヅ)ノ").then(msg => {msg.delete(5000)});
-  if(!message.channel.permissionsFor(client.user).has("MANAGE_ROLES")) return message.channel.send(":x: **|** 𝑱𝒆 𝒏'𝒂𝒊 𝒑𝒂𝒔 𝒍𝒆𝒔 𝒅𝒓𝒐𝒊𝒕𝒔 （ つ﹏╰）").then(msg => {msg.delete(5000)});;
+ if(!message.channel.permissionsFor(message.author).has("MANAGE_ROLES")) return message.channel.send(":x: **|** Tu n'as pas les droits ヽ(ヅ)ノ").then(msg => {msg.delete(5000)});
+  if(!message.channel.permissionsFor(client.user).has("MANAGE_ROLES")) return message.channel.send(":x: **|** Je n'ai pas les droits （ つ﹏╰）").then(msg => {msg.delete(5000)});;
 
-  if(!tomute) return message.channel.send(":x: **|** 𝑱𝒆 𝒏𝒆 𝒕𝒓𝒐𝒖𝒗𝒆 𝒑𝒂𝒔 𝒄𝒆𝒕𝒕𝒆 𝒖𝒕𝒊𝒍𝒊𝒔𝒂𝒕𝒆𝒖𝒓 ಥ_ಥ").then(msg => {msg.delete(5000)});
-  if (tomute.highestRole.position >= message.member.highestRole.position) return message.channel.send(":x: **|** 𝑻𝒖 𝒏𝒆 𝒑𝒆𝒖𝒙 𝒑𝒂𝒔 𝒍𝒆 𝒃𝒂𝒏  (/❛o❛)/").then(msg => {msg.delete(5000)});  
+  if(!tomute) return message.channel.send(":x: **|** Je ne trouve pas cette utilisateur ಥ_ಥ").then(msg => {msg.delete(5000)});
+  if (tomute.highestRole.position >= message.member.highestRole.position) return message.channel.send(":x: **|** Tu ne peux pas le mute (/❛o❛)/").then(msg => {msg.delete(5000)});  
 
 
   let mutetime = args[1];
-  if(!mutetime) return message.reply("Vous devez définir un temp.");
+  if(!mutetime) return message.reply(":x: **|** Vous devez définir un temp.");
 
 
   let muterole = message.guild.roles.find(`name`, "Prison");
   //start of create role
   if(!muteRole){
     try{
-  message.channel.send(":x: **|** 𝑱𝒆 𝒏𝒆 𝒕𝒓𝒐𝒖𝒗𝒆 𝒑𝒂𝒔 𝒍𝒆 𝒓𝒐̂𝒍𝒆 ``Prison`` ಥ_ಥ").then(msg => {msg.delete(3000)});;
-  message.channel.send("```\n𝑪𝒓𝒆́𝒂𝒕𝒊𝒐𝒏 𝒅𝒖 𝒓𝒐̂𝒍𝒆...\n```").then(msg => {msg.delete(3000)});;
+  message.channel.send(":x: **|** Je ne trouve pas le rôle ``Prison`` ಥ_ಥ").then(msg => {msg.delete(3000)});;
+  message.channel.send("```\nCréation du rôle...\n```").then(msg => {msg.delete(3000)});;
 
   muteRole = await message.guild.createRole({
     name: "Prison",
