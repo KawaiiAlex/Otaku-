@@ -2,6 +2,7 @@
 const config = require('../../config.json');
 exports.run = (client, message, args) => {
 
+
   function getpollinfo() {
 
       if(message.channel.type != "text") return message.reply("No.");
@@ -23,7 +24,7 @@ exports.run = (client, message, args) => {
 
 
       
-      message.channel.send("𝑫𝒆 𝒒𝒖𝒐𝒊 𝒗𝒂 𝒑𝒂𝒓𝒍𝒆𝒓 𝒍𝒆 𝒔𝒐𝒏𝒅𝒂𝒈𝒆 ?");
+      message.channel.send("De quoi va parler du sondage ?");
 
       const filter = m => m.author.id === message.author.id;
 
@@ -34,7 +35,7 @@ exports.run = (client, message, args) => {
 
       message.channel.awaitMessages(filter, { max: 1, time: 5000000, errors: ['time'] }).then(collected => {
 
-      message.channel.send("𝑪𝒐𝒎𝒃𝒊𝒆𝒏 𝒅𝒆 𝒕𝒆𝒎𝒑 𝒗𝒂 𝒅𝒖𝒓𝒆𝒓 𝒍𝒆 𝒔𝒐𝒏𝒅𝒂𝒈𝒆 ?")}).then(collected => {
+      message.channel.send("Combien de temp va durer le sondage ?")}).then(collected => {
 
 
       message.channel.awaitMessages(filter, { max: 1, time: 5000000, errors: ['time'] }).then(collected => {
@@ -87,12 +88,12 @@ exports.run = (client, message, args) => {
 
                if(realnumberrr >= "10000000") { //thumbs up
 
-                   message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-                   message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+                   message.channel.send("Resultats:");
+                   message.channel.send("Oui: " + realnumberrr);
 
                }
-               message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-               message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+               message.channel.send("Resultats:");
+               message.channel.send("Oui: " + realnumberrr);
 
            })
        }).then(collected => {
@@ -120,7 +121,7 @@ exports.run = (client, message, args) => {
                console.log("Collected " + realnumberrrr + " votes for thumbs down");
 
 
-               message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+               message.channel.send("Non: " + realnumberrrr);
 
            })
        })
@@ -157,12 +158,12 @@ exports.run = (client, message, args) => {
 
                if(realnumberrr >= config.rvotes) { //thumbs up
 
-                   message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
+                   message.channel.send("Resultats:");
                    message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
 
                }
-               message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-               message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+               message.channel.send("Resultats:");
+               message.channel.send("Oui: " + realnumberrr);
 
            })
        }).then(collected => {
@@ -227,12 +228,12 @@ exports.run = (client, message, args) => {
 
                //if(realnumberrr >= config.rvotes) { //thumbs up
 
-                   message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-                   message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+                   message.channel.send("Resultats:");
+                   message.channel.send("Oui: " + realnumberrr);
 
                //}
-               message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-               message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+               message.channel.send("Resultats:");
+               message.channel.send("Oui: " + realnumberrr);
 
            })
        }).then(collected => {
@@ -260,7 +261,7 @@ exports.run = (client, message, args) => {
                console.log("Collected " + realnumberrrr + " votes for thumbs down");
 
 
-               message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+               message.channel.send("Non: " + realnumberrrr);
 
            })
        })
@@ -304,12 +305,12 @@ exports.run = (client, message, args) => {
 
                if(realnumberrr >= config.rvotes) { //thumbs up
 
-                   message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-                   message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+                   message.channel.send("Resultats:");
+                   message.channel.send("Oui: " + realnumberrr);
 
                }
-               message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-               message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+               message.channel.send("Resultats:");
+               message.channel.send("Oui: " + realnumberrr);
 
            })
        }).then(collected => {
@@ -337,7 +338,7 @@ exports.run = (client, message, args) => {
                console.log("Collected " + realnumberrrr + " votes for thumbs down");
 
 
-               message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+               message.channel.send("Non: " + realnumberrrr);
 
            })
        })
@@ -391,8 +392,8 @@ exports.run = (client, message, args) => {
 
                console.log("Collected " + realnumberrr + " votes for thumbs up");
 
-               message.channel.send("𝑹𝒆𝒔𝒖𝒍𝒕𝒂𝒕𝒔:");
-               message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+               message.channel.send("Resultats:");
+               message.channel.send("Oui: " + realnumberrr);
 
            })
        }).then(collected => {
@@ -430,7 +431,7 @@ exports.run = (client, message, args) => {
                console.log("Collected " + realnumberrrr + " votes for thumbs down");
 
 
-               message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+               message.channel.send("Non: " + realnumberrrr);
 
            })
        })
@@ -442,7 +443,7 @@ exports.run = (client, message, args) => {
 
       else if (m == "-1" && d == "-1" && s == "-1" && h == "-1") {
 
-          message.reply(":x: **|** 𝑭𝒐𝒓𝒎𝒂𝒕 𝒊𝒏𝒗𝒂𝒍𝒊𝒅𝒆. 𝑼𝒕𝒊𝒍𝒊𝒔𝒆 `s`, `m`, `h` ou `d`!")
+          message.reply(":x: **|** Format invalide. Utilise `s`, `m`, `h` ou `d`!")
       }
 
 
@@ -474,11 +475,11 @@ exports.run = (client, message, args) => {
               if(realnumberrr >= config.rvotes) { //thumbs up
 
                   message.channel.send("Resultats:");
-                  message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+                  message.channel.send("Oui: " + realnumberrr);
 
               }
               message.channel.send("Resultats:");
-              message.channel.send("𝑶𝒖𝒊: " + realnumberrr);
+              message.channel.send("Oui: " + realnumberrr);
 
           })
       })
@@ -498,10 +499,10 @@ exports.run = (client, message, args) => {
 
               if(realnumberrrr >= config.rvotes) { //thumbs up
                   //message.channel.send("Success! Got required votes!");
-                  message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+                  message.channel.send("Non: " + realnumberrrr);
               }
 
-              message.channel.send("𝑵𝒐𝒏: " + realnumberrrr);
+              message.channel.send("Non: " + realnumberrrr);
 
               message.channel.fetchMessages({limit: 5}) .then(messages => {
               messages.filter(author => {
@@ -531,7 +532,6 @@ exports.run = (client, message, args) => {
 
 
   } //finish command
-
 
 exports.conf = {
     enabled: true,
