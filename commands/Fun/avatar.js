@@ -31,7 +31,7 @@ exports.run = (client, message, args) => {
     
     message.channel.send({embed: new Discord.RichEmbed()
                           .setImage(definedUser.avatarURL)
-                          .setDescription(`[Avatar de ${definedUser.tag}](${definedUser.avatarURL})`)
+                          .setTitle(`Avatar de ${definedUser.tag}`)
                           .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
                           .setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
                          })
