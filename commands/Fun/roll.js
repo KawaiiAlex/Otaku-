@@ -24,5 +24,5 @@ if(!definedNumber) {
   exports.help = {
     name: 'roll',
     description: 'Donne un nombre aléatoire',
-    usage: 'roll\nou\nroll <nombre>'
+    usage: 'roll ou roll <nombre>'
   };
