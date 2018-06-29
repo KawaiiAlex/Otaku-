@@ -4,17 +4,17 @@ exports.run = (client, message, args) => {
 
   if (args.length < 1) {
     message.delete().catch();
-    message.channel.send(':x: **|** 𝑽𝒐𝒖𝒔 𝒅𝒆𝒗𝒆𝒛 𝒆𝒏𝒕𝒓𝒆𝒓 𝒍𝒆 𝒕𝒆𝒙𝒕𝒆 𝒂̀ 𝒊𝒏𝒗𝒆𝒓𝒔𝒆𝒓! (͡° ͜ʖ ͡°)').then(m => m.delete(5000));
+    message.channel.send(':x: **|** Vous devez entrer le texte à inverser! (͡° ͜ʖ ͡°)').then(m => m.delete(5000));
     return;
 }
 
 var text = message.content.substring(10)
 
 let ReverseEmbed = new Discord.RichEmbed()
-  .setAuthor("𝑹𝒆𝒗𝒆𝒓𝒔𝒆")
+  .setAuthor("Reverse")
   .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
-  .addField("𝑨𝒗𝒂𝒏𝒕", text)
-  .addField("𝑨𝒑𝒓𝒆̀𝒔", args.join(' ').split('').reverse().join(''))
+  .addField("Avant", text)
+  .addField("Après", args.join(' ').split('').reverse().join(''))
   .setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
   message.channel.send(ReverseEmbed);
 
