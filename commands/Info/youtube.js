@@ -3,7 +3,8 @@ exports.run = (client, message) => {
 
 let args = message.content.split(' ')
    		args.shift ()
-   		message.channel.send ("𝑽𝒐𝒊𝒄𝒊 𝒍𝒆 𝒓𝒆́𝒔𝒖𝒍𝒕𝒂𝒕 𝒅𝒆 𝒗𝒐𝒕𝒓𝒆 𝒓𝒆𝒄𝒉𝒆𝒓𝒄𝒉𝒆: https://www.youtube.com/results?search_query=" +args.join('+'))
+   		message.channel.send ("Voici le résultat de votre recherche: https://www.youtube.com/results?search_query=" +args.join('+'))
+         console.log(`${message.author.username} | youtube `)
 }
 
 exports.conf = {

@@ -39,18 +39,17 @@ exports.run = (client, message, args) => {
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
   
   let uEmbed = new Discord.RichEmbed()
-  .setDescription("Information sur" + definedUser.tag)
+  .setDescription("**Informations Utilisateurs **")
   .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .setThumbnail(definedUser.displayAvatarURL)
-  .addField("Pseudo", definedUser.username, false)
-  .addField("#", definedUser.discriminator, false)
-  .addField("𝑰𝑫", definedUser.id, false)
-  .addField("𝑩𝒐𝒕", `${definedUser.bot ? "𝑶𝒖𝒊" : "𝑵𝒐𝒏"}`, false)
-  .addField("𝑺𝒕𝒂𝒕𝒖𝒕",definedUser.presence.status, false)
-  .addField("𝑱𝒆𝒖", `${definedUser.presence.game ? `${definedUser.presence.game.name}` : "𝑵𝒆 𝒋𝒐𝒖𝒆 𝒂̀ 𝒓𝒊𝒆𝒏"}`, false)
-  .addField("𝑪𝒓𝒆́𝒂𝒕𝒊𝒐𝒏 𝒅𝒖 𝒄𝒐𝒎𝒑𝒕𝒆", `${moment.utc(definedUser.createdAt).format("D/M/Y, HH:mm:ss")} ${daysCreated.toFixed(0)} 𝒋𝒐𝒖𝒓𝒔`,false)
-  .addField("𝑫𝒂𝒕𝒆 𝒅'𝒂𝒓𝒓𝒊𝒗𝒆́𝒆 𝒔𝒖𝒓 𝒍𝒆 𝒔𝒆𝒓𝒗", `${moment.utc(member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysJoined.toFixed(0)} 𝒋𝒐𝒖𝒓𝒔`,false)
-  .setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
+  .addField("**Pseudo**", definedUser.username, false)
+  .addField("**#**", definedUser.discriminator, false)
+  .addField("**ID**", definedUser.id, false)
+  .addField("**Bot**", `${definedUser.bot ? "Oui" : "Non"}`, false)
+  .addField("**Statuts**",definedUser.presence.status, false)
+  .addField("**Jeu**", `${definedUser.presence.game ? `${definedUser.presence.game.name}` : "Ne joue a rien"}`, false)
+  .addField("**Création du compte**", `${moment.utc(definedUser.createdAt).format("D/M/Y, HH:mm:ss")} ${daysCreated.toFixed(0)} jours`,false)
+  .addField("**Date d'arrivée sur le serv**", `${moment.utc(member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysJoined.toFixed(0)} jours`,false)
 
   message.channel.send(uEmbed);
 }
@@ -65,5 +64,5 @@ exports.conf = {
   exports.help = {
     name: 'userinfo',
     description: 'Donne les informations sur l\'utilisateur',
-    usage: 'userinfo / userinfo <mention>'
+    usage: 'userinfo'
 };

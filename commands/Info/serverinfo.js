@@ -38,18 +38,18 @@ exports.run = (client, message, args) => {
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
   let sicon = message.guild.iconURL;
   let serverembed = new Discord.RichEmbed()
-  .setDescription("𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏𝒔 𝒔𝒆𝒓𝒗𝒆𝒖𝒓")
+  .setDescription("Informations serveur")
   .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .setThumbnail(sicon)
-  .addField("𝑵𝒐𝒎 𝒅𝒖 𝒔𝒆𝒓𝒗𝒆𝒖𝒓", message.guild.name,false )
-  .addField("𝑫𝒂𝒕𝒆 𝒅𝒆 𝒄𝒓𝒆́𝒂𝒕𝒊𝒐𝒏", `${moment.utc(member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysCreated.toFixed(0)} 𝒋𝒐𝒖𝒓𝒔`,false)
-  .addField("𝑫𝒂𝒕𝒆 𝒅'𝒂𝒓𝒓𝒊𝒗𝒆𝒓", `${moment.utc(message.member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysJoined.toFixed(0)} 𝒋𝒐𝒖𝒓𝒔`, false )
-  .addField("𝑴𝒆𝒎𝒃𝒓𝒆𝒔 𝑻𝒐𝒕𝒂𝒖𝒙", message.guild.memberCount,false)
-  .addField ("𝑷𝒓𝒐𝒑𝒓𝒊𝒆́𝒕𝒂𝒊𝒓𝒆 𝒅𝒖 𝒔𝒆𝒓𝒗𝒆𝒖𝒓", `<@${message.guild.owner.id}>`,false)
-  .addField ("𝑰𝑫 𝒅𝒖 𝒔𝒆𝒓𝒗𝒆𝒖𝒓", message.guild.id, false)
+  .addField("Nom du serveur", message.guild.name,false )
+  .addField("Date de création", `${moment.utc(member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysCreated.toFixed(0)} jours`,false)
+  .addField("Date de venue", `${moment.utc(message.member.joinedAt).format("D/M/Y, HH:mm:ss")} ${daysJoined.toFixed(0)} jours`, false )
+  .addField("Membres Totaux", message.guild.memberCount,false)
+  .addField ("Propriétaire du serveur", `<@${message.guild.owner.id}>`,false)
+  .addField ("ID du serveur", message.guild.id, false)
  .setImage ( sicon)
 .setTimestamp()
-.setFooter(client.user.username, client.user.displayAvatarURL).setTimestamp()
+  .setFooter(`${message.author.username} | Server Info`);
   return message.channel.send(serverembed);
 
 }
