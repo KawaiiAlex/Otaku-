@@ -39,10 +39,10 @@ exports.run = (client, message, args) => {
 const daysJoined = millisJoined / 1000 / 60 / 60 / 24;
   
   let uEmbed = new Discord.RichEmbed()
-  .setDescription("𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏𝒔 𝑼𝒕𝒊𝒍𝒊𝒔𝒂𝒕𝒆𝒖𝒓")
+  .setDescription("Information sur" + definedUser.tag)
   .setColor(`${message.guild.me.displayHexColor!=='#00000' ? message.guild.me.displayHexColor : 0xffffff}`)
   .setThumbnail(definedUser.displayAvatarURL)
-  .addField("𝑷𝒔𝒆𝒖𝒅𝒐", definedUser.username, false)
+  .addField("Pseudo", definedUser.username, false)
   .addField("#", definedUser.discriminator, false)
   .addField("𝑰𝑫", definedUser.id, false)
   .addField("𝑩𝒐𝒕", `${definedUser.bot ? "𝑶𝒖𝒊" : "𝑵𝒐𝒏"}`, false)
